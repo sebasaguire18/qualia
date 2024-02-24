@@ -1,0 +1,712 @@
+
+
+
+// función que cambia el contenido principal de todas las pantallas recibiendo un string para saber que contendido llamar
+function contenido(ventana,$index=false) {
+    if ($index == 1) {
+        loading('contentIndex');
+        if (ventana == 'inicio') {
+            ventana = 'index';
+            $.ajax({
+                type: "POST",
+                url: "pages/index.php",
+                data: "ventana=" + ventana,
+                success: function(r) {
+                    $('#contentIndex').html(``);
+                    configPage('inicio');
+                    $('#contentIndex').html(r);
+                }
+            });
+        } else if (ventana == 'contenido') {
+            $.ajax({
+                type: "POST",
+                url: "pages/contenido.php",
+                data: "ventana=" + ventana,
+                success: function(r) {
+                    $('#contentIndex').html(``);
+                    configPage('contenido');
+                    $('#contentIndex').html(r);
+                }
+            });
+        } else if (ventana == 'login') {
+            $.ajax({
+                type: "POST",
+                url: "pages/login.php",
+                data: "ventana=" + ventana,
+                success: function(r) {
+                    $('#contentIndex').html(``);
+                    configPage('login');
+                    $('#contentIndex').html(r);
+                }
+            });
+        }
+    }else if ($index == 2) {
+        loading('contentIndexCurso');
+        if (ventana == 'inicio') {
+            ventana = 'index';
+            $.ajax({
+                type: "POST",
+                url: "pages/index.php",
+                data: "ventana=" + ventana,
+                success: function(r) {
+                    $('#contentIndexCurso').html(``);
+                    configPage('inicio');
+                    $('#contentIndexCurso').html(r);
+                }
+            });
+        } else if (ventana == 'realizarCurso') {
+            $.ajax({
+                type: "POST",
+                url: "pages/realizarCurso.php",
+                data: "ventana=" + ventana,
+                success: function(r) {
+                    $('#contentIndexCurso').html(``);
+                    configPage('contenido');
+                    $('#contentIndexCurso').html(r);
+                }
+            });
+        } else if (ventana == 'login') {
+            $.ajax({
+                type: "POST",
+                url: "pages/login.php",
+                data: "ventana=" + ventana,
+                success: function(r) {
+                    $('#contentIndexCurso').html(``);
+                    configPage('login');
+                    $('#contentIndexCurso').html(r);
+                }
+            });
+        }
+    }else{
+
+        loading('contentIndex');
+        if (ventana == 'inicio') {
+            $.ajax({
+                type: "POST",
+                url: "pages/inicio.php",
+                data: "ventana=" + ventana,
+                success: function(r) {
+                    $('#contentIndex').html(``);
+                    configPage('inicio');
+                    $('#contentIndex').html(r);
+                }
+            });
+        } else if (ventana == 'listReportes') {
+            $.ajax({
+                type: "POST",
+                url: "pages/listReportes.php",
+                data: "ventana=" + ventana,
+                success: function(r) {
+                    $('#contentIndex').html(``);
+                    configPage('listReportes');
+                    optionSelects('optionsCedulas','optionsCedulas01');
+                    $('#contentPrincipal').html(r);
+                }
+            });
+        } else if (ventana == 'listUsuarios') {
+            $.ajax({
+                type: "POST",
+                url: "pages/listUsuarios.php",
+                data: "ventana=" + ventana,
+                success: function(r) {
+                    configPage('listUsuarios');
+                    $('#contentPrincipal').html(r);
+                }
+            });        
+        } else if (ventana == 'caja') {
+            $.ajax({
+                type: "POST",
+                url: "pages/caja.php",
+                data: "ventana=" + ventana,
+                success: function(r) {
+                    $('#contentPrincipal').html(r);
+                }
+            });        
+        } else if (ventana == 'services') {
+            $.ajax({
+                type: "POST",
+                url: "pages/services.php",
+                data: "ventana=" + ventana,
+                success: function(r) {
+                    $('#contentPrincipal').html(r);
+                }
+            });        
+        } else if (ventana == 'contacts') {
+            $.ajax({
+                type: "POST",
+                url: "pages/contacts.php",
+                data: "ventana=" + ventana,
+                success: function(r) {
+                    $('#contentPrincipal').html(r);
+                }
+            });
+          
+        }
+    }
+}
+
+// Función que da configuraciones extra al cargar el contenido de la vista
+function configPage(page,subpage=false) {
+    
+    $('.nav-link').removeClass('active');
+
+    if (page == 'inicio') {
+        $('#titlePage').html(`Inicio`);
+        $('.nav-link').removeClass('active');
+        $('.nav-linkInicio').addClass('active');
+        // tablas('tblListaProductos');
+    }
+    if (page == 'contenido') {
+        $('#titlePage').html(`Contenido Curso`);
+        $('.nav-link').removeClass('active');
+        $('.nav-linkContenido').addClass('active');
+        // tablas('tblListaGastos');
+    }
+    if (page == 'login') {
+        $('#titlePage').html(`Login`);
+        $('.nav-link').removeClass('active');
+        $('.nav-linkLogin').addClass('active');
+        // tablas('tblListaLogin');
+    }
+    if (page == 'listReportes') {
+        $('#titlePageS').html(`Lista Reportes`);
+        $('.nav-link').removeClass('active');
+        $('.nav-linkLogin').addClass('active');
+        tablas('tblLisCertificados');
+    }
+    if (page == 'listUsuarios') {
+        $('#titlePageS').html(`Lista de usuarios`);
+        $('.nav-link').removeClass('active');
+        $('.nav-linkVentas').addClass('active');
+        tablas('tblLisUsuarios');
+    }
+    if (page == 'sistemas') {
+        subpage = subpage.charAt(0).toUpperCase() + subpage.slice(1);
+
+        $('#titlePage').html(`Sistemas - ` + subpage);
+        $('.nav-link').removeClass('active');
+        $('.nav-linkSistemas').addClass('active');
+        $('.submenu-link').removeClass('active');
+        $('.submenu-link'+subpage).addClass('active');
+        tablas('tblLista'+subpage);
+    }
+}
+
+function loading(page) {
+    $('#'+page).html(`
+    <div class="row text-center">
+        <div class="col-12">
+            <img src="images/carga.gif" width="15%" class="">
+        </div>
+    </div>`);
+}
+
+function curso(page) {
+
+    let titulo;
+
+    $('#bodyContenidoCurso').html(``);
+    $('#tituloContenidoCurso').html(``);
+    loading('bodyContenidoCurso');
+
+    $.ajax({
+        type: "POST",
+        url: "pages/extrapages/contentCurso.php",
+        data: "page=" + page,
+        success: function(r) {
+            titulo = setearContVar(page);
+            $('#tituloContenidoCurso').html(titulo);
+            $('#bodyContenidoCurso').html(r);
+        }
+    });
+}
+
+// seteo contenido variado como el titulo, botones de navegacion y active de la lista del contenido del curso
+function setearContVar(page) {
+    
+    let titulo;
+
+    let atras = $('.btn-atras');
+    let siguiente = $('.btn-siguiente');
+    
+    $('.indiceList').removeClass('active');
+    atras.removeClass('');
+    siguiente.removeClass('');
+
+    if (page == 1) {
+        titulo = '1. Marco legal';
+
+        // setear botones
+        atras.attr("onclick","");
+        atras.addClass('');
+        siguiente.attr("onclick","curso(2)");
+
+    }else if (page == 2) {
+        titulo = '2. Conceptos';
+
+        // setear botones
+        atras.attr("onclick","curso(1)");
+        siguiente.attr("onclick","curso(3)");
+
+    }else if (page == 3) {
+        titulo = '3. ETAs, contaminación y peligros';
+
+        // setear botones
+        atras.attr("onclick","curso(2)");
+        siguiente.attr("onclick","curso(4)");
+
+    }else if (page == 4) {
+        titulo = '4. Personal manipulador de alimentos';
+
+        // setear botones
+        atras.attr("onclick","curso(3)");
+        siguiente.attr("onclick","curso(5)");
+
+    }else if (page == 5) {
+        titulo = '5. Requisitos higiénicos de fabricación';
+
+        // setear botones
+        atras.attr("onclick","curso(4)");
+        siguiente.attr("onclick","curso(6)");
+
+    }else if (page == 6) {
+        titulo = '6. Locativos';
+
+        // setear botones
+        atras.attr("onclick","curso(5)");
+        siguiente.attr("onclick","curso(7)");
+
+    }else if (page == 7) {
+        titulo = '7. Equipos y utensilios';
+
+        // setear botones
+        atras.attr("onclick","curso(6)");
+        siguiente.attr("onclick","curso(8)");
+
+    }else if (page == 8) {
+        titulo = '8. Programa de limpieza y desinfección';
+
+        // setear botones
+        atras.attr("onclick","curso(7)");
+        siguiente.attr("onclick","curso(9)");
+
+    }else if (page == 9) {
+        titulo = '9. Manejo de residuos sólidos y plagas';
+
+        // setear botones
+        atras.attr("onclick","curso(8)");
+        siguiente.attr("onclick","curso(10)");
+
+    }else if (page == 10) {
+        titulo = '10. Agua potable';
+
+        // setear botones
+        atras.attr("onclick","curso(9)");
+        siguiente.attr("onclick","");
+        siguiente.addClass('');
+
+    }else {
+        titulo = 'No hay datos de este tema.hp';
+
+        // setear botones
+        
+    }
+
+    $('#indice-'+page).addClass('active');
+
+    return titulo;
+}
+
+// función que optiene el contenido de tablas dependiendo de su id
+function tablas(tabla) {
+    if (tabla == 'tblLisCertificados') {
+        $.ajax({
+            type: "POST",
+            url: "pages/tablas.php",
+            data: "tabla=" + tabla,
+            success: function(r) {
+                $('#tblLisCertificados').html(r);
+                tblInit(tabla);
+            }
+        });
+    } else if (tabla == 'tblLisCertificadosCancel') {
+        $.ajax({
+            type: "POST",
+            url: "pages/tablas.php",
+            data: "tabla=" + tabla,
+            success: function(r) {
+                $('#tblLisCertificadosCancel').html(r);
+            }
+        });        
+    } else if (tabla == 'tblLisUsuarios') {
+        $.ajax({
+            type: "POST",
+            url: "pages/tablas.php",
+            data: "tabla=" + tabla,
+            success: function(r) {
+                $('#tblLisUsuarios').html(r);
+                tblInit(tabla);
+            }
+        });
+    } else if (tabla == 'tblLisFirmas') {
+        $.ajax({
+            type: "POST",
+            url: "pages/tablas.php",
+            data: "tabla=" + tabla,
+            success: function(r) {
+                $('#tblLisFirmas').html(r);
+            }
+        });        
+    } else if (tabla == 'services') {
+        $.ajax({
+            type: "POST",
+            url: "pages/services.php",
+            data: "tabla=" + tabla,
+            success: function(r) {
+                $('#contentPrincipal').html(r);
+            }
+        });        
+    } else if (tabla == 'contacts') {
+        $.ajax({
+            type: "POST",
+            url: "pages/contacts.php",
+            data: "tabla=" + tabla,
+            success: function(r) {
+                $('#contentPrincipal').html(r);
+            }
+        });
+      
+    }
+}
+
+// datatables
+function tblInit(tabla) {
+    $(function(){
+        if (tabla == 'tblLisCertificados') {
+            // datatable de tabla lista de certificados
+            $('#tblLisCertifi').DataTable({
+                "language": {
+                    "url": "extensions/datatables/Spanish.json"
+                },
+                responsive: "true",
+                scrollCollapse: true,
+                scrollX: true,
+                dom: 'lfrtip'
+            });
+        }
+        if (tabla == 'tblLisUsuarios') {
+            // datatable de tabla contactos
+            $('#tblLisUsu').DataTable({
+                "language": {
+                    "url": "extensions/datatables/Spanish.json"
+                },
+                responsive: "true",
+                scrollCollapse: true,
+                scrollX: true,
+                dom: 'lfrtip'
+            });
+        }
+        if (tabla == 'tblListaVenta') {
+            // datatable de tabla contactos
+            $('#tblListaVenta').DataTable({
+                "language": {
+                    "url": "extensions/datatables/Spanish.json"
+                },
+                responsive: "true",
+                scrollCollapse: true,
+                scrollX: true,
+                dom: 'lfrtip'
+            });
+        }
+        if (tabla == 'tblListaGastos') {
+            // datatable de tabla contactos
+            $('#tblListaGastos').DataTable({
+                "language": {
+                    "url": "extensions/datatables/Spanish.json"
+                },
+                responsive: "true",
+				"order": [ 0, 'desc' ],
+                scrollCollapse: true,
+                scrollX: true,
+                dom: 'lfBrtip',
+                buttons: [
+                    {
+                        extend:     'excelHtml5',
+                        text:       '<span class="txt-white icon-file-excel"></span>',
+                        titleattr:  'Exportar a Excel',
+                        className:  'ruler-button_child bg-success'
+                    },
+                    {
+                        extend:     'pdfHtml5',
+                        text:       '<span class="txt-white icon-file-pdf"></span>',
+                        titleattr:  'Exportar a Excel',
+                        className:  'ruler-button_child bg-danger'
+                    },
+                    {
+                        extend:     'print',
+                        text:       '<span class="txt-white icon-printer"></span>',
+                        titleattr:  'Exportar a Excel',
+                        className:  'ruler-button_child bg-info'
+                    },
+                ]
+            });
+        }
+        if (tabla == 'tblListaRoles') {
+            // datatable de tabla roles
+            $('#tblListaRoles').DataTable({
+                "language": {
+                    "url": "extensions/datatables/Spanish.json"
+                },
+                responsive: "true",
+                scrollCollapse: true,
+                scrollX: true,
+                dom: 'lfBrtip',
+                buttons: [
+                    {
+                        extend:     'excelHtml5',
+                        text:       '<span class="txt-white icon-file-excel"></span>',
+                        titleattr:  'Exportar a Excel',
+                        className:  'ruler-button_child bg-success'
+                    },
+                    {
+                        extend:     'pdfHtml5',
+                        text:       '<span class="txt-white icon-file-pdf"></span>',
+                        titleattr:  'Exportar a Excel',
+                        className:  'ruler-button_child bg-danger'
+                    },
+                    {
+                        extend:     'print',
+                        text:       '<span class="txt-white icon-printer"></span>',
+                        titleattr:  'Exportar a Excel',
+                        className:  'ruler-button_child bg-info'
+                    },
+                ]
+            });
+        }
+        if (tabla == 'tblListaUsuarios') {
+            // datatable de tabla roles
+            $('#tblListaUsuarios').DataTable({
+                "language": {
+                    "url": "extensions/datatables/Spanish.json"
+                },
+                responsive: "true",
+				"order": [ 0, 'desc' ],
+                scrollCollapse: true,
+                scrollX: true,
+                dom: 'lfBrtip',
+                buttons: [
+                    {
+                        extend:     'excelHtml5',
+                        text:       '<span class="txt-white icon-file-excel"></span>',
+                        titleattr:  'Exportar a Excel',
+                        className:  'ruler-button_child bg-success'
+                    },
+                    {
+                        extend:     'pdfHtml5',
+                        text:       '<span class="txt-white icon-file-pdf"></span>',
+                        titleattr:  'Exportar a Excel',
+                        className:  'ruler-button_child bg-danger'
+                    },
+                    {
+                        extend:     'print',
+                        text:       '<span class="txt-white icon-printer"></span>',
+                        titleattr:  'Exportar a Excel',
+                        className:  'ruler-button_child bg-info'
+                    },
+                ]
+            });
+        }
+    });
+}
+
+// función que inserta un nuevo certificado
+function insertarNuevoCertificado() {
+
+    let tipo = "nuevoCertificado";
+    let btnDismiss = document.getElementById('btnDismissNuevoCertificado');
+    let inputNombreCertificado = $('#inputNombreCertificado').val();
+    let inputIntHoraria = $('#inputIntHoraria').val();
+    let inputTipoCertificado = $('#inputTipoCertificado').val();
+
+    $.ajax({
+        type: "POST",
+        url: "php/controler.php",
+        data: "tipo=" + tipo + "&inputNombreCertificado=" + inputNombreCertificado + "&inputIntHoraria=" + inputIntHoraria + "&inputTipoCertificado=" + inputTipoCertificado,
+        success: function(r) {
+            $('#alertNuevoCertificado').html(r);
+            limpiarFormulario('formNuevoCertificado');
+            setTimeout(() => {
+                $('#alertNuevoCertificado').html(``);
+            }, 1900);
+            setTimeout(() => {
+                btnDismiss.click();
+            }, 2000);
+        }
+    });
+}
+
+// función que inserta un nuevo certificado
+function insertarNuevaFirma() {
+
+    let tipo = "nuevaFirma";
+    let btnDismiss = document.getElementById('btnDismissNuevaFiorma');
+    let btnCollapse = document.getElementById('collapseNuevaFirma');
+    let inputNombreFirma = $('#inputNombreFirma').val();
+    let customFile = $('#customFile').val();
+    let datosForm = new FormData();
+    datosForm.append('customFile',customFile);
+
+    $.ajax({
+        type: "POST",
+        url: "php/controler.php",
+        data: datosForm + "&tipo=" + tipo + "&inputNombreFirma=" + inputNombreFirma,
+        success: function(r) {
+            $('#alertNuevaFirma').html(r);
+            limpiarFormulario('formNuevaFirma');
+            setTimeout(() => {
+                $('#alertNuevaFirma').html(``);
+            }, 1900);
+            setTimeout(() => {
+                btnCollapse.click();
+                btnDismiss.click();
+            }, 2000);
+        }
+    });
+}
+
+// funcion para llamar options para llenar Selects
+function optionSelects(tipo,campo) {
+    
+    if (tipo == 'optionsCedulas') {
+        $.ajax({
+            type: "POST",
+            url: "pages/selectsOptions.php",
+            data: "tipo=" + tipo,
+            success: function(r) {
+                $('#'+campo).html(r);
+                
+                let choices = document.querySelectorAll('#'+campo);
+                let initChoice;
+                for(let i=0; i<choices.length;i++) {
+                    if (choices[i].classList.contains("multiple-remove")) {
+                        initChoice = new Choices(choices[i],
+                        {
+                            delimiter: ',',
+                            editItems: true,
+                            maxItemCount: -1,
+                            removeItemButton: true,
+                        });
+                    }else{
+                        initChoice = new Choices(choices[i]);
+                    }
+                }
+            }
+        });
+    }
+}
+
+// función que limpia formularios por id
+function limpiarFormulario(nombre) {
+    document.getElementById(nombre).reset();
+}
+
+// Añade el nombre al input del archivo de imagen
+$(function(){
+    // Añade el nombre al input del archivo de imagen
+    $(".fileInput").on("change", function() {
+        let fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
+});
+
+// Función para iniciar sesión
+function iniciarSesion() {
+
+    let usernameLoging = $('#usernameLoging').val();
+    let passLoging = $('#passLoging').val();
+
+	
+    let exprEmail = /^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-z0-9\-\.]+$/;
+
+
+    $('#spanUserLoging','#spanPassLoging').addClass('d-none');
+    $('#usernameLoging','#passLoging').removeClass('border-danger');
+
+    if(usernameLoging == '' || !exprEmail.test(usernameLoging)){
+        $('#usernameLoging').addClass('border-danger');
+        $('#spanUserLoging').removeClass('d-none');
+        return false;
+    }else{
+        $('#usernameLoging').removeClass('border-danger');
+        $('#spanUserLoging').addClass('d-none');
+
+        if(passLoging == ''){
+            $('#passLoging').addClass('border-danger');
+            $('#spanPassLoging').removeClass('d-none');
+            return false;
+        }else{
+            $('#passLoging').removeClass('border-danger');
+            $('#spanPassLoging').addClass('d-none');
+        }
+
+        
+        $('#btnIniciarSesion').text('Validando datos...');
+        $('#usernameLoging','#passLoging').removeClass('border-danger');
+        $('#spanUserLogingError').addClass('d-none');
+        $('#spanPassLogingError').addClass('d-none');
+    
+        $.ajax({
+            type: "POST",
+            url: "php/iniciosesion.php",
+            data: "usernameLoging=" + usernameLoging + "&passLoging=" + passLoging,
+            success: function(r) {
+                setTimeout(function(){
+                    if(r == 'errorUsername'){
+                        $('#usernameLoging').addClass('border-danger');
+                        $('#spanUserLogingError').removeClass('d-none');
+                        $('#btnIniciarSesion').text('Validar');
+                    }
+                    if (r == 'errorPassword') {
+                        $('#passLoging').addClass('border-danger');
+                        $('#spanPassLogingError').removeClass('d-none');
+                        $('#btnIniciarSesion').text('Validar');
+                    }
+    
+                    if (r != 'errorUsername' && r != 'errorPassword') {
+                        if (r == '64645990cb1d4') {
+                            window.location.href = 'welcome.php';
+                        }else{
+                            window.location.href = 'curso.php';
+                        }
+                    }
+                }, 500);
+            }
+        });
+    }
+
+}
+
+
+// función que cambia de formularios para iniciar sesion, registrarse o recuperar contraseña
+function changeForm(form) {
+    if (form == 'regis') {
+        $('#box-sesion').addClass('d-none');
+        $('#box-regis').removeClass('d-none');
+    }else if (form == 'ini'){
+        $('#box-regis').addClass('d-none');
+        $('#box-sesion').removeClass('d-none');
+    }
+    // else if (form == 'olv'){
+    //     $('#').addClass('d-');
+    //     $('#').removeClass('d-');
+    // }
+}
+
+
+// evitar que el dormulario de ingreso de pedido haga submit
+$(function () {
+    $('#formNuevaFirma').submit(function (e) {
+        e.preventDefault();
+    });
+});
+
