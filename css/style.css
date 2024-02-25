@@ -8282,6 +8282,18 @@ textarea.form-control-lg {
   --bs-text-opacity: 1;
 }
 
+.text-green{
+  color: #3cba00 !important;
+}
+
+.text-orange{
+  color: #fdbb64 !important;
+}
+
+.text-indigo{
+  color: #1826c2 !important;
+}
+
 .bg-primary {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;
