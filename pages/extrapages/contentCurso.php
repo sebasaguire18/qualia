@@ -269,6 +269,7 @@
                 <hr>
                 <h4 class="text-secondary1 my-4">T° para el desarrollo y control de los MO</h4>
             </div>
+            
             <div class="col-12 col-md-8 col-lg-8 col-xl-8 text-center">
                 <img src="images/t3t.png" class="img-fluid">
             </div>
@@ -284,11 +285,110 @@
             <div class="col-12 text-center mt-4">
                 <img src="images/3tbp.png" class="img-fluid">
             </div>
+            <div class="col-12 text-center">
+                <br>
+                <h4 class="text-secondary1 my-4">Contaminación de los alimentos</h4>
+            </div>
+            <div class="col-12 text-center mt-4">
+                <img src="images/t3.7.png" class="img-fluid">
+            </div>
         <?php
     }elseif ($page == 4) {
         ?>
             <div class="col-12">
-                <p>4. Personal manipulador de alimentos</p>
+                <h4 class="text-secondary1 my-4">¿Qué es un manipulador de alimentos?</h4>
+            </div>
+            <div class="col-12 col-md-6 col-lg-6 col-xl-6">
+                <ul>
+                    <li>Son todas las personas que de una u manera están involucradas de forma directa en la transformación, fabricación, expendio, almacenamiento y distribución de un alimento.</li>
+                    <li>De estos individuos depende la buena calidad de los productos elaborados y su inocuidad, pero también los manipuladores de alimentos tienen la responsabilidad ética de proteger la salud de los consumidores al elaborar productos que cumplen con lo establecido en la normatividad vigente, utilizando técnicas higiénicas para realizar esta labor.</li>
+                </ul>
+            </div>
+            <div class="col-6 col-md-3 col-lg-3 col-xl-3 text-center">
+                <img src="images/t4.1.png" class="img-fluid w-100">
+                <p>La persona que los produce</p>
+            </div>
+            <div class="col-6 col-md-3 col-lg-3 col-xl-3 text-center">
+                <img src="images/t4.png" class="img-fluid w-100">
+                <p>La persona que los transporta</p>
+            </div>
+            <div class="col-12 col-md-4 col-lg-4 col-xl-4 text-center">
+                <img src="images/t4.2.png" class="img-fluid w-100">
+                <p>La persona que los comercializa</p>
+            </div>
+            <div class="col-12 col-md-8 col-lg-8 col-xl-8 text-center">
+                <img src="images/t4.3.png" class="img-fluid w-100">
+                <p>La persona que los arregla, adoba o cocina</p>
+            </div>
+            <div class="col-12 col-md-6 col-lg-6 col-xl-6 text-center">
+                <img src="images/t4.4.png" class="img-fluid w-100">
+                <p>La persona que los lleva a la mesa</p>
+            </div>
+            <div class="col-12 col-md-6 col-lg-6 col-xl-6 text-center">
+                <img src="images/t4.5.png" class="img-fluid w-100">
+                <p>O quien los vende directamente</p>
+            </div>
+            <div class="col-12 col-md-4 col-lg-4 col-xl-4 text-center">
+                <img src="images/t4.6.png" class="img-fluid w-75">
+            </div>
+            <div class="col-12 col-md-4 col-lg-4 col-xl-4 text-center">
+                <img src="images/t4.8.png" class="img-fluid w-75">
+            </div>
+            <div class="col-12 col-md-4 col-lg-4 col-xl-4 text-center">
+                <img src="images/t4.7.png" class="img-fluid w-75">
+                <p>Finalmente los consumidores para quienes han trabajado las anteriores personas.</p>
+            </div>
+            <div class="col-12 col-md-6 col-lg-6 col-xl-6 text-center m-auto">
+                <img src="images/t4.9.png" class="img-fluid w-75 w-md-50">
+                <p>De todos el más importante es quien prepara el alimento o quien lleva o vende el producto al cliente <span class="text-secondary1"><b>--USTED--</b></span></p>
+            </div>
+            <br>
+            <div class="col-12 text-center">
+                <hr>   
+                <h3 class="text-secondary1 my-4">4.1 Prácticas higiénicas y medidas de protección</h3>
+            </div>
+            <div class="col-12 col-md-4 col-lg-4 col-xl-4 text-center m-auto">
+                <div class="row">
+                    <div class="col-4 col-md-12 col-lg-12 col-xl-12">
+                        <img src="images/t4.10.png" class="img-fluid w-50">
+                    </div>
+                    <div class="col-4 col-md-12 col-lg-12 col-xl-12">
+                        <img src="images/t4.11.png" class="img-fluid w-50">
+                    </div>
+                    <div class="col-4 col-md-12 col-lg-12 col-xl-12">
+                        <img src="images/t4.12.png" class="img-fluid w-50">
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-8 col-lg-8 col-xl-8 text-center m-auto">
+                <img src="images/t4.13.png" class="img-fluid">
+            </div>
+            <div class="col-12 col-md-10 col-lg-10 col-xl-10 text-center m-auto mt-4">
+                <img src="images/t4.14.png" class="img-fluid w-75">
+            </div>
+            <div class="col-12 col-md-10 col-lg-10 col-xl-10 text-center m-auto mt-4">
+                <img src="images/t4.15.png" class="img-fluid w-75">
+            </div>
+            <div class="col-12">
+                <h4 class="text-secondary1 my-4">Hábitos que se TIENEN QUE EVITAR</h4>
+            </div>
+            <div class="col-12 col-md-10 col-lg-10 col-xl-10 m-auto mt-4">
+                <ul>
+                    <li>Hurgarse o rascarse la nariz, la boca, el cabello, las orejas descubiertas, o tocarse granitos, heridas, quemaduras o vendajes, por facilidad de propagar bacterias a los alimentos en preparación. De tener que hacerlo, acudir a un inmediato lavado de manos.</li>
+                    <li>Fumar, comer, mascar chicle, beber o escupir en las áreas de preparación de alimentos. Estos son hábitos inadmisibles.</li>
+                    <li>Usar uñas largas o con esmalte. Esconden gérmenes y desprenden particulas en el alimento.</li>
+                    <li>Probar los alimentos con el mismo utensilio o con los dedos.</li>
+                    <li>Tocar y/o tener mascotas en el área de preparación.</li>
+                    <li>Usar anillos, esclavas, pulseras, aros, relojes u otros elementos que además de "esconder" bacterias, pueden caer sin darse cuenta en los alimentos o en equipos y además de causar un problema de salud al consumidor, pueden incluso causar un accidente de trabajo. </li>
+                    <li>Manipular alimentos o ingredientes con las manos en vez de utensilios.</li>
+                    <li>Utilizar la vestimenta como paño para limpiar o secar.</li>
+                    <li>Usar el baño con la indumentaria de trabajo puesta. Resulta muy fácil que la ropa se contamine en este lugar y luego transportar los gérmenes al lugar de proceso.</li>
+                </ul>
+            </div>
+            <br>
+            <div class="col-12 text-center">
+                <hr>   
+                <h3 class="text-secondary1 my-4">4.1.2 Estado de salud</h3>
             </div>
         <?php
     }elseif ($page == 5) {
