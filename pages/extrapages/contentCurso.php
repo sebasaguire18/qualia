@@ -137,15 +137,15 @@
             <div class="col-12 text-center">
                 <h4 class="text-secondary1">¿Porqué es super importante?</h4>
             </div>
-            <div class="col-4 col-md-4 col-lg-4 col-xl-4 text-center text-center">
+            <div class="col-12 col-md-4 col-lg-4 col-xl-4 text-center text-center">
                 <img src="images/t3.png" class="img-fluid w-75">
                 <h6>¿El lavado de utensilios?</h6>
             </div>
-            <div class="col-4 col-md-4 col-lg-4 col-xl-4 text-center text-center">
+            <div class="col-12 col-md-4 col-lg-4 col-xl-4 text-center text-center">
                 <img src="images/t3.1.png" class="img-fluid w-75">
                 <h6>¿El lavado de las manos?</h6>
             </div>
-            <div class="col-4 col-md-4 col-lg-4 col-xl-4 text-center text-center">
+            <div class="col-12 col-md-4 col-lg-4 col-xl-4 text-center text-center">
                 <img src="images/t3.2.png" class="img-fluid w-75">
                 <h6>¿El lavado de alimentos?</h6>
             </div>
@@ -350,13 +350,13 @@
             <div class="col-12 col-md-4 col-lg-4 col-xl-4 text-center m-auto">
                 <div class="row">
                     <div class="col-4 col-md-12 col-lg-12 col-xl-12">
-                        <img src="images/t4.10.png" class="img-fluid w-50">
+                        <img src="images/t4.10.png" class="img-fluid w-75">
                     </div>
                     <div class="col-4 col-md-12 col-lg-12 col-xl-12">
-                        <img src="images/t4.11.png" class="img-fluid w-50">
+                        <img src="images/t4.11.png" class="img-fluid w-75">
                     </div>
                     <div class="col-4 col-md-12 col-lg-12 col-xl-12">
-                        <img src="images/t4.12.png" class="img-fluid w-50">
+                        <img src="images/t4.12.png" class="img-fluid w-75">
                     </div>
                 </div>
             </div>
@@ -364,10 +364,10 @@
                 <img src="images/t4.13.png" class="img-fluid">
             </div>
             <div class="col-12 col-md-10 col-lg-10 col-xl-10 text-center m-auto mt-4">
-                <img src="images/t4.14.png" class="img-fluid w-75">
+                <img src="images/t4.14.png" class="img-fluid">
             </div>
             <div class="col-12 col-md-10 col-lg-10 col-xl-10 text-center m-auto mt-4">
-                <img src="images/t4.15.png" class="img-fluid w-75">
+                <img src="images/t4.15.png" class="img-fluid">
             </div>
             <div class="col-12">
                 <h4 class="text-secondary1 my-4">Hábitos que se TIENEN QUE EVITAR</h4>
@@ -390,41 +390,183 @@
                 <hr>   
                 <h3 class="text-secondary1 my-4">4.1.2 Estado de salud</h3>
             </div>
+            <div class="col-12 col-md-10 col-lg-10 col-xl-10 text-center m-auto mt-4">
+                <img src="images/t4.1.2.png" class="img-fluid w-75">
+            </div>
+            <div class="col-12 col-md-6 col-lg-6 col-xl-6 m-auto">
+                <br></br>
+                <p>En caso de enfermedad: Si es inevitable trabajar mientras se sufre una enfermedad respiratoria, es necesario que el manipulador extreme los cuidados para evitar hábitos como toser, estornudar o hablar sobre los alimentos. Puede ocurrir que bacterias como el estafilococo dorado, que viven en la boca, la nariz o la garganta, puedan caer sobre el alimento en las gotitas y contaminarlo. Estos hábitos, incluso deben ser evitados estando sano.</p>
+                <br>
+                <p>El toser, estornudar o hablar, son acciones a veces inevitables, por lo cual es necesario evitarlo hacer sobre los alimentos, cubriéndose la boca con papel descartable o con las manos y en cualquier caso, proceder a un lavado completo de las mismas antes de volver a tocar los alimentos y las superficies que los contactan.</p>
+            </div>
+            <div class="col-12 col-md-6 col-lg-6 col-xl-6 text-center m-auto">
+                <img src="images/t4.1.2.1.png" class="img-fluid w-75 w-md-50">
+            </div>
+            <div class="col-12 text-center">
+                <hr>   
+                <h3 class="text-secondary1 my-4">4.2 Lavado de manos. Práctica</h3>
+            </div>
+            <div class="col-12 col-md-8 col-lg-8 col-xl-8 text-center m-auto mt-4">
+                <img src="images/t4.2.2.png" class="img-fluid">
+            </div>
+            <div class="col-12">
+                <h4 class="text-secondary1 my-4">Distribución correcta</h4>
+            </div>
+            
+            <div class="col-12 col-md-8 col-lg-8 col-xl-8 text-center m-auto mt-4">
+                <img src="images/t4.2.3.png" class="img-fluid">
+            </div>
+            <div class="col-12">
+                <h4 class="text-secondary1 my-4">Educación y capacitación</h4>
+            </div>
+            <div class="col-12 col-md-8 col-lg-8 col-xl-8 text-center m-auto mt-4">
+                <img src="images/t4.2.4.png" class="img-fluid">
+            </div>
         <?php
     }elseif ($page == 5) {
         ?>
-            <div class="col-12">
-                <p>5. Requisitos higiénicos de fabricación</p>
+            <div class="col-12 col-md-8 col-lg-8 col-xl-8 text-center m-auto mt-4">
+                <img src="images/t5.png" class="img-fluid">
             </div>
         <?php
     }elseif ($page == 6) {
         ?>
             <div class="col-12">
-                <p>6. Locativos</p>
+                <h4 class="text-secondary1 my-4">Condiciones básicas de higiene en la fabricación de alimentos</h4>
+            </div>
+            <div class="col-12 m-auto mt-4">
+                <ul>
+                    <li>Es importante que cuando se abran locales y fábricas de transformación de alimentos, se tenga en cuenta la <span class="text-primary"><b>Resolución 2674 de 2013</b></span> del Ministerio de Salud y Protección Social, puesto que esta establece las condiciones generales para edificaciones e instalaciones donde se procesan alimentos.</li>
+                    <br>
+                    <li><span class="text-indigo"><b>Capitulo I. Art 6. Condiciones generales:</b></span> Los establecimientos destinados a la fabricación, procesamiento, preparación, envase, almacenamiento, distribución, comercialización y expendio de alimentos deberán cumplir las condiciones generales que se establecen (en la norma).</li>
+                </ul>
+            </div>
+            <div class="col-12">
+                <h4 class="text-secondary1 my-4">Condiciones básicas de higiene</h4>
+            </div>
+            <div class="col-12 col-md-8 col-lg-8 col-xl-8 text-center m-auto mt-2">
+                <img src="images/t6.png" class="img-fluid">
+            </div>
+            <div class="col-12 col-md-8 col-lg-8 col-xl-8 text-center m-auto mt-2">
+                <img src="images/t6.1.png" class="img-fluid">
+            </div>
+            <div class="col-12 col-md-8 col-lg-8 col-xl-8 text-center m-auto mt-2">
+                <img src="images/t6.2.png" class="img-fluid">
+            </div>
+            <div class="col-12 col-md-8 col-lg-8 col-xl-8 text-center m-auto mt-2">
+                <img src="images/t6.3.png" class="img-fluid">
+            </div>
+            <div class="col-12 col-md-8 col-lg-8 col-xl-8 text-center m-auto mt-2">
+                <img src="images/t6.4.png" class="img-fluid">
+            </div>
+            <div class="col-12">
+                <h4 class="text-secondary1 my-4">Paredes y techos</h4>
+            </div>
+            <div class="col-12 col-md-8 col-lg-8 col-xl-8 text-center m-auto mt-2">
+                <img src="images/t6.5.png" class="img-fluid">
+            </div>
+            <div class="col-12 col-md-8 col-lg-8 col-xl-8 text-center m-auto mt-2">
+                <img src="images/t6.6.png" class="img-fluid">
+            </div>
+            <div class="col-12 col-md-8 col-lg-8 col-xl-8 text-center m-auto mt-2">
+                <img src="images/t6.7.png" class="img-fluid">
+            </div>
+            <div class="col-12 col-md-8 col-lg-8 col-xl-8 text-center m-auto mt-2">
+                <img src="images/t6.8.png" class="img-fluid">
+            </div>
+            <div class="col-12 col-md-8 col-lg-8 col-xl-8 text-center m-auto mt-2">
+                <img src="images/t6.9.png" class="img-fluid">
+            </div>
+            <div class="col-12 col-md-8 col-lg-8 col-xl-8 text-center m-auto mt-2">
+                <img src="images/t6.10.png" class="img-fluid">
+            </div>
+            <div class="col-12 col-md-8 col-lg-8 col-xl-8 text-center m-auto mt-2">
+                <img src="images/t6.11.png" class="img-fluid">
             </div>
         <?php
     }elseif ($page == 7) {
         ?>
             <div class="col-12">
-                <p>7. Equipos y utensilios</p>
+                <h4 class="text-secondary1 my-4">Cómo seleccionar los equipos</h4>
+            </div>
+            <div class="col-12 col-md-8 col-lg-8 col-xl-8 text-center m-auto mt-2">
+                <img src="images/t7.png" class="img-fluid">
+            </div>
+            <div class="col-12">
+                <h4 class="text-secondary1 my-4">Condiciones específicas (Res. 2674/13)</h4>
+            </div>
+            <div class="col-12 col-md-8 col-lg-8 col-xl-8 text-center m-auto mt-2">
+                <img src="images/t7.1.png" class="img-fluid">
+            </div>
+            <div class="col-12">
+                <p>Superficies de contacto con el alimento deben ser lisas, no poroso, no absorbente y estar libres de defectos, grietas u otras irregularidades que puedan atrapar partículas de alimentos o microorganismos.</p>
+            </div>
+            <div class="col-12 col-md-8 col-lg-8 col-xl-8 text-center m-auto mt-2">
+                <img src="images/t7.2.png" class="img-fluid">
+            </div>
+            <div class="col-12">
+                <p>Fácilmente accesibles y desmontables para la limpieza e inspección, no deben poseer piezas o accesorios que requieran lubricación ni roscas de acoplamiento u otras conexiones peligrosas.</p>
+            </div>
+            <div class="col-12 col-md-8 col-lg-8 col-xl-8 text-center m-auto mt-2">
+                <img src="images/t7.3.png" class="img-fluid">
+            </div>
+            <div class="col-12 col-md-8 col-lg-8 col-xl-8 text-center m-auto mt-5">
+                <img src="images/t7.4.png" class="img-fluid">
+            </div>
+            <div class="col-12">
+                <p>Los exteriores de los equipos deben estar diseñadas y construidas de manera que faciliten su limpieza y eviten la acumulación de suciedades, microorganismos, plagas u otros contaminantes.</p>
+            </div>
+            <div class="col-12 col-md-8 col-lg-8 col-xl-8 text-center m-auto mt-2">
+                <img src="images/t7.5.png" class="img-fluid">
+            </div>
+            <div class="col-12">
+                <p>Las mesas y mesones empleados en el manejo de alimentos deben tener superficies lisas, con bordes sin aristas y estar construidas con materiales resistentes, impermeables y lavables.</p>
             </div>
         <?php
     }elseif ($page == 8) {
         ?>
-            <div class="col-12">
-                <p>8. Programa de limpieza y desinfección</p>
+            <div class="col-12 col-md-10 col-lg-10 col-xl-10 text-center m-auto my-4">
+                <img src="images/t8.4.png" class="img-fluid">
+            </div>
+            <div class="col-12 col-md-4 col-lg-4 col-xl-4 m-auto">
+                <img src="images/t8.png" class="img-fluid">
+            </div>
+            <div class="col-12 col-md-4 col-lg-4 col-xl-4 m-auto">
+                <img src="images/t8.1.png" class="img-fluid">
+            </div>
+            <div class="col-12 col-md-4 col-lg-4 col-xl-4 m-auto">
+                <img src="images/t8.2.png" class="img-fluid">
+            </div>
+            <div class="col-12 col-md-10 col-lg-10 col-xl-10 m-auto my-4">
+                <img src="images/t8.3.png" class="img-fluid">
             </div>
         <?php
     }elseif ($page == 9) {
         ?>
+            
             <div class="col-12">
-                <p>9. Manejo de residuos sólidos y plagas</p>
+                <h4 class="text-secondary1 my-4">Manejo de residuos sólidos</h4>
+            </div>
+            <div class="col-12 col-md-10 col-lg-10 col-xl-10 m-auto my-4">
+                <img src="images/t9.5.png" class="img-fluid">
+            </div>
+            <div class="col-12 col-md-10 col-lg-10 col-xl-10 m-auto my-4">
+                <img src="images/t9.4.png" class="img-fluid">
+            </div>
+            <div class="col-12">
+                <h4 class="text-secondary1 my-4">Control de plagas</h4>
+            </div>
+            <div class="col-12 col-md-8 col-lg-8 col-xl-8 text-center m-auto my-4">
+                <img src="images/t9.6.png" class="img-fluid w-75">
+            </div>
+            <div class="col-12 col-md-4 col-lg-4 col-xl-4 m-auto">
+                <p>Las plagas deben ser objeto de un programa de control específico, el cual debe involucrar el concepto de control integral, apelando a la aplicación armónica de las diferentes medidas de control conocidas, con especial énfasis en las radicales y de orden preventivo.</p>
             </div>
         <?php
     }elseif ($page == 10) {
         ?>
-            <div class="col-12">
-                <p>10. Agua potable</p>
+            <div class="col-12 col-md-8 col-lg-8 col-xl-8 text-center m-auto my-4">
+                <img src="images/t10.png" class="img-fluid">
             </div>
         <?php
     }else {

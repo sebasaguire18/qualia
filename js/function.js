@@ -306,7 +306,7 @@ function setearContVar(page) {
         siguiente.addClass('');
 
     }else {
-        titulo = 'No hay datos de este tema.hp';
+        titulo = 'No hay datos de este tema';
 
         // setear botones
         

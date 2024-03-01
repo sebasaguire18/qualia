@@ -89,6 +89,13 @@
                                 <!-- <span class="badge bg-primary rounded-pill">14</span> -->
                             </li>
                         </ol>
+                        <ul class="list-group mt-3">
+                            <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start cursor indiceList" onclick="curso(11)" id="indice-11">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Prueba Final</div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
