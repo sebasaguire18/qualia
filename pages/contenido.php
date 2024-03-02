@@ -11,7 +11,7 @@
                     <h2 class="text-primary fw-bolder mb-0">Manipulación de alimentos</h2>
                     <!-- Download resume button-->
                     <!-- Note: Set the link href target to a PDF file within your project-->
-                    <a class="btn btn-primary px-4 py-3" >
+                    <a class="btn btn-primary px-4 py-3" onclick="contenido('login',1)">
                         <div class="d-inline-block bi bi-journal-text me-2"></div>
                         Iniciar Curso
                     </a>

@@ -77,6 +77,44 @@ function contenido(ventana,$index=false) {
                 }
             });
         }
+    }else if ($index == 3) {
+        loading('contentIndexCurso');
+        if (ventana == 'inicio') {
+            ventana = 'index';
+            $.ajax({
+                type: "POST",
+                url: "../pages/index.php",
+                data: "ventana=" + ventana,
+                success: function(r) {
+                    $('#contentIndexCurso').html(``);
+                    configPage('inicio');
+                    $('#contentIndexCurso').html(r);
+                }
+            });
+        } else if (ventana == 'realizarCurso') {
+            $.ajax({
+                type: "POST",
+                url: "../pages/realizarCurso.php",
+                data: "ventana=" + ventana,
+                success: function(r) {
+                    window.location.href = '../curso.php';
+                    $('#contentIndexCurso').html(``);
+                    configPage('contenido');
+                    $('#contentIndexCurso').html(r);
+                }
+            });
+        } else if (ventana == 'login') {
+            $.ajax({
+                type: "POST",
+                url: "pages/login.php",
+                data: "ventana=" + ventana,
+                success: function(r) {
+                    $('#contentIndexCurso').html(``);
+                    configPage('login');
+                    $('#contentIndexCurso').html(r);
+                }
+            });
+        }
     }else{
 
         loading('contentIndex');
@@ -230,15 +268,15 @@ function setearContVar(page) {
     let siguiente = $('.btn-siguiente');
     
     $('.indiceList').removeClass('active');
-    atras.removeClass('');
-    siguiente.removeClass('');
+    atras.removeClass('disabled');
+    siguiente.removeClass('disabled');
 
     if (page == 1) {
         titulo = '1. Marco legal';
 
         // setear botones
         atras.attr("onclick","");
-        atras.addClass('');
+        atras.addClass('disabled');
         siguiente.attr("onclick","curso(2)");
 
     }else if (page == 2) {
@@ -303,18 +341,25 @@ function setearContVar(page) {
         // setear botones
         atras.attr("onclick","curso(9)");
         siguiente.attr("onclick","");
-        siguiente.addClass('');
+        siguiente.addClass('disabled');
 
     }else {
         titulo = 'No hay datos de este tema';
-
         // setear botones
-        
     }
 
     $('#indice-'+page).addClass('active');
 
     return titulo;
+}
+
+function consultarRespuesta(pregunta) {
+    let respuesta ='';
+    if (document.getElementsByClassName('respuesta_'+pregunta).checked) {   
+        respuesta  = 'respuesta'+pregunta;
+    }else{
+        respuesta  ='vacio';
+    }
 }
 
 // función que optiene el contenido de tablas dependiendo de su id

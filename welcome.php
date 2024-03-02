@@ -34,7 +34,9 @@
     <?php include 'includes/footer.php'; ?>
     
     <?php include 'includes/script.php'; ?>
-    
+    <script>
+        contenido('inicio',1);
+    </script>
 </body>
 </html>
 

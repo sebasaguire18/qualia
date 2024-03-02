@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	contenido('inicio',1);
+	
 
 	// setInterval(() => {
 	// 	tablas('tblLisCertificados'),

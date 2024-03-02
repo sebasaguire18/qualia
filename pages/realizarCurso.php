@@ -1,5 +1,5 @@
 <!-- Page Content-->
-<div class="container-fluid px-2 px-md-3 px-lg-5 px-xl-5 px-xxl-5 my-5">
+<div class="container-fluid px-md-3 px-lg-5 px-xl-5 px-xxl-5 my-5">
     <div class="row mb-3 align-items-center justify-content-end">
         <div class="col-12 col-md-6 col-lg-6 d-flex align-items-center justify-content-end pr-3">
             <a class="btn btn-primary px-2 py-2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
@@ -11,7 +11,7 @@
     <!-- <div class="text-center mb-5">
         <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Contenido del curso virtual</span></h1>
     </div> -->
-    <div class="row gx-5 justify-content-center">
+    <div class="row justify-content-center">
         <div class="col-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3 mb-4">
         </div>
         <div class="col-12 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
@@ -90,7 +90,7 @@
                             </li>
                         </ol>
                         <ul class="list-group mt-3">
-                            <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start cursor indiceList" onclick="curso(11)" id="indice-11">
+                            <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start cursor indiceList" id="indice-11">
                                 <div class="ms-2 me-auto">
                                     <div class="fw-bold">Prueba Final</div>
                                 </div>
@@ -110,7 +110,7 @@
                         <h3 class="text-secondary1" id="tituloContenidoCurso">1. &nbsp Marco legal </h3>
                     </div>
                     <div class="card-body">
-                        <div class="row align-items-center gx-5" id="bodyContenidoCurso">
+                        <div class="row align-items-center" id="bodyContenidoCurso">
                             <div class="col-12">
                                 <div class="row justify-content-center">
                                     <div class="col-6">
