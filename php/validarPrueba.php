@@ -36,7 +36,7 @@
     <!-- Page Content  -->
     <main class="flex-shrink-0">
         <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
-            <div class="container px-5">
+            <div class="container">
                 <a class="navbar-brand w-25"><span class="fw-bolder text-primary" id="imgIsotipo"><img src="../images/isotipo.png" class="mw-60px" width="65%"></span></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -63,7 +63,7 @@
             </div>
         </nav>
 
-        <div id="contentIndexCurso" class="my-5">
+        <div id="contentIndexCurso" class="my-5 px-5">
             <div class="row">                    
                     <?php
                         $tipo = $_POST['tipo'];
@@ -92,7 +92,109 @@
 
                             echo $html;
                         }else {
+                            $rescorrect_1 = 1;
+                            $rescorrect_2 = 4;
+                            $rescorrect_3 = 2;
+                            $rescorrect_4 = 3;
+                            $rescorrect_5 = 1;
+                            $rescorrect_6 = 1;
+                            $rescorrect_7 = 4;
+                            $rescorrect_8 = 3;
+                            $rescorrect_9 = 2;
+                            $rescorrect_10 = 1;
+
+                            $rescorrect = 0;
+                            $porcentaje = 0;
                             
+                            if ($pregunta_1 == $rescorrect_1) {
+                                $rescorrect = $rescorrect+1;
+
+                                $porcentaje = ($rescorrect * 100)/10;
+
+                            }
+                            if ($pregunta_2 == $rescorrect_2) {
+                                $rescorrect = $rescorrect+1;
+
+                                $porcentaje = ($rescorrect * 100)/10;
+
+                            }
+                            if ($pregunta_3 == $rescorrect_3) {
+                                $rescorrect = $rescorrect+1;
+
+                                $porcentaje = ($rescorrect * 100)/10;
+
+                            }
+                            if ($pregunta_4 == $rescorrect_4) {
+                                $rescorrect = $rescorrect+1;
+
+                                $porcentaje = ($rescorrect * 100)/10;
+
+                            }
+                            if ($pregunta_5 == $rescorrect_5) {
+                                $rescorrect = $rescorrect+1;
+
+                                $porcentaje = ($rescorrect * 100)/10;
+
+                            }
+                            if ($pregunta_6 == $rescorrect_6) {
+                                $rescorrect = $rescorrect+1;
+
+                                $porcentaje = ($rescorrect * 100)/10;
+
+                            }
+                            if ($pregunta_7 == $rescorrect_7) {
+                                $rescorrect = $rescorrect+1;
+
+                                $porcentaje = ($rescorrect * 100)/10;
+
+                            }
+                            if ($pregunta_8 == $rescorrect_8) {
+                                $rescorrect = $rescorrect+1;
+
+                                $porcentaje = ($rescorrect * 100)/10;
+
+                            }
+                            if ($pregunta_9 == $rescorrect_9) {
+                                $rescorrect = $rescorrect+1;
+
+                                $porcentaje = ($rescorrect * 100)/10;
+
+                            }
+                            if ($pregunta_10 == $rescorrect_10) {
+                                $rescorrect = $rescorrect+1;
+
+                                $porcentaje = ($rescorrect * 100)/10;
+
+                            }
+
+                            if ($porcentaje>=50) {
+
+                                ?>
+                                    <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+                                        <h4 class="alert-heading"> <strong>!! Felicitaciones pasaste la prueba ¡¡</strong></h4> <hr> <h5> El porcentaje de la prueba fue de:  <?php echo $porcentaje; ?>% </h5>
+                                        
+                                        <br>
+                                        <h6>Comunicate con un asesor para solicitar el certificado y el carnet de manipulación de alimentos.</h6>
+                                        
+                                        <button type="button" class="btn btn-outline-dark">
+                                            <span>Comunicar un asesor</span>
+                                        </button>
+                                    </div>
+
+                                    
+                                <?php
+
+                            }else {
+                                ?>
+                                    <div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
+                                        <h4 class="alert-heading"> <strong>Lo sentimos debes de verificar algunas respuestas.</strong></h4> <hr> <h5> El porcentaje de la prueba fue de:  <?php echo $porcentaje; ?>% </h5>
+                                        <button type="button" class="btn btn-danger" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">Cerrar</span>
+                                        </button>
+                                    </div>
+                                <?php
+                            }
+
                         }
                     ?>
                 </div>
@@ -100,7 +202,7 @@
                         }
                     ?>
 
-                <div class="col-12 col-md-8 col-lg-8 col-xl-8 m-auto">
+                <div class="col-12 col-md-8 col-lg-8 col-xl-8 m-auto" id="contenidoValidar">
                     <form action="#" method="POST">
                         <ol>
                             <div class="">
@@ -214,9 +316,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
     <!-- <script src="js/scripts.js"></script> -->
+    <?php if ($porcentaje>=50) {?>
     <script>
-        // contenido('inicio',2);
+        setearContentValidar();
     </script>
+    <?php } ?>
 </body>
 </html>
 

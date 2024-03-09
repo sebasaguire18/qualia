@@ -90,7 +90,7 @@
                             </li>
                         </ol>
                         <ul class="list-group mt-3">
-                            <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start cursor indiceList" id="indice-11">
+                            <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start cursor indiceList" id="indice-11" onclick="redir('php/validarPrueba.php')">
                                 <div class="ms-2 me-auto">
                                     <div class="fw-bold">Prueba Final</div>
                                 </div>

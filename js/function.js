@@ -362,6 +362,14 @@ function consultarRespuesta(pregunta) {
     }
 }
 
+function redir(page) {
+    window.location.href = page;
+}
+
+function setearContentValidar() {
+    $('#contenidoValidar').html(``);
+}
+
 // función que optiene el contenido de tablas dependiendo de su id
 function tablas(tabla) {
     if (tabla == 'tblLisCertificados') {
