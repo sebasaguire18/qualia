@@ -111,10 +111,6 @@
                 <form>
                     <div class="form-row my-4">
                         <div class="form-group col-md-6">
-                            <label for="inputState">Certificado en:</label>
-                            <?php selectCertificados(1,'generarCert'); ?>
-                        </div>
-                        <div class="form-group col-md-6">
                             <label for="optionsCedulas01">A nombre de:</label>
                             <select class="choices form-select multiple-remove" id="optionsCedulas01">
                             </select>
@@ -124,7 +120,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Mostrar plantilla</button>
+                <button type="button" class="btn btn-primary" onclick="generarCertificado()">Mostrar plantilla</button>
             </div>
         </div>
     </div>

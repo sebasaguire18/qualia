@@ -11,6 +11,7 @@
                 ?>
                         <li class="nav-item"><a class="cursor nav-link nav-linkLogin" onclick="contenido('realizarCurso',2)" >Realizar Curso</a></li>
                         <li class="nav-item"><a class="cursor nav-link nav-linkLogin" onclick="contenido('login',2)" ><span class="bi bi-person h4"></span></a></li>
+                        <li class="nav-item"><a class="cursor nav-link" href="php/cerrarsesion.php" title="Cerrar Sesión"><span class="bi bi-box-arrow-right h4 text-danger"></span></a></li>
                 <?php
                         }else{
                 ?>

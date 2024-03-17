@@ -1,9 +1,9 @@
 <?php
  session_start();
 
- if($_SESSION['usu_id']){
+ if($_SESSION['userID']){
     
-    $usu_id = $_SESSION['usu_id'];
+    $usu_id = $_SESSION['userID'];
     include '../php/conexion-bd.php';
 
     $tipo = $_POST['tipo'];                       
@@ -13,7 +13,7 @@
 
         while ($usuario = mysqli_fetch_array($seleccionarUsuarios)) {
             ?>
-            <option value="<?php echo $usuario['usu_id'] ?>"><?php echo $usuario['usu_nombre'].' - '.$usuario['usu_dni'] ?></option>
+            <option value="<?php echo $usuario['usu_dni'] ?>"><?php echo $usuario['usu_nombre'].' - '.$usuario['usu_dni'] ?></option>
             <?php
         } 
     }

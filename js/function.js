@@ -658,6 +658,16 @@ function optionSelects(tipo,campo) {
     }
 }
 
+// función para generar el certificado
+function generarCertificado(){
+    let cc = $('#optionsCedulas01').val();
+    let ruta = 'extensions/pdf/index.php?paramPDF=certificado&dni=';
+    console.log(cc);
+    // window.location.href = ruta;
+    window.open(ruta + cc, '_blank');
+
+}
+
 // función que limpia formularios por id
 function limpiarFormulario(nombre) {
     document.getElementById(nombre).reset();

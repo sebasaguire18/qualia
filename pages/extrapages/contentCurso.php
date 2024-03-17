@@ -565,6 +565,9 @@
         <?php
     }elseif ($page == 10) {
         ?>
+            <div class="col-12 col-md-5 col-lg-5 col-xl-5 text-center m-auto my-4">
+                <img src="images/t10agua.png" class="img-fluid">
+            </div>
             <div class="col-12 col-md-8 col-lg-8 col-xl-8 text-center m-auto my-4">
                 <img src="images/t10.png" class="img-fluid">
             </div>
