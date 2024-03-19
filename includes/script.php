@@ -5,6 +5,8 @@
 <script src="extensions/choices.js/choices.js"></script>
 <script src="js/function.js"></script>
 
+<!-- Sweet Alert 2 -->
+<script src="extensions/sweetalert2/sweetalert2.all.min.js"></script>
 
 <!-- data tables -->
 <script type="text/javascript" src="extensions/datatables/JSZip-2.5.0/jszip.min.js"></script>

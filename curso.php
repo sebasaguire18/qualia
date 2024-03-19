@@ -13,7 +13,7 @@
 <!doctype html>
 <html lang="es">
 <head>
-    <title id="titlePage">Inicio</title>
+    <title id="titlePageCurso">Inicio</title>
     <?php include 'includes/linkq.php'; ?>
 
 </head>

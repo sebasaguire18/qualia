@@ -61,10 +61,21 @@ function contenido(ventana,$index=false) {
                 data: "ventana=" + ventana,
                 success: function(r) {
                     $('#contentIndexCurso').html(``);
-                    configPage('contenido');
+                    configPage('realizarCurso');
                     $('#contentIndexCurso').html(r);
                 }
             });
+        } else if (ventana == 'misCursos') {
+            $.ajax({
+                type: "POST",
+                url: "pages/misCursos.php",
+                data: "ventana=" + ventana,
+                success: function(r) {
+                    $('#contentIndexCurso').html(``);
+                    configPage('misCursos');
+                    $('#contentIndexCurso').html(r);
+                }
+            });          
         } else if (ventana == 'login') {
             $.ajax({
                 type: "POST",
@@ -151,15 +162,6 @@ function contenido(ventana,$index=false) {
                     $('#contentPrincipal').html(r);
                 }
             });        
-        } else if (ventana == 'caja') {
-            $.ajax({
-                type: "POST",
-                url: "pages/caja.php",
-                data: "ventana=" + ventana,
-                success: function(r) {
-                    $('#contentPrincipal').html(r);
-                }
-            });        
         } else if (ventana == 'services') {
             $.ajax({
                 type: "POST",
@@ -194,10 +196,10 @@ function configPage(page,subpage=false) {
         $('.nav-linkInicio').addClass('active');
         // tablas('tblListaProductos');
     }
-    if (page == 'contenido') {
-        $('#titlePage').html(`Contenido Curso`);
+    if (page == 'realizarCurso') {
+        $('#titlePageCurso').html(`Contenido Curso`);
         $('.nav-link').removeClass('active');
-        $('.nav-linkContenido').addClass('active');
+        $('.nav-linkRealizarCurso').addClass('active');
         // tablas('tblListaGastos');
     }
     if (page == 'login') {
@@ -218,15 +220,11 @@ function configPage(page,subpage=false) {
         $('.nav-linkVentas').addClass('active');
         tablas('tblLisUsuarios');
     }
-    if (page == 'sistemas') {
-        subpage = subpage.charAt(0).toUpperCase() + subpage.slice(1);
-
-        $('#titlePage').html(`Sistemas - ` + subpage);
+    if (page == 'misCursos') {
+        $('#titlePageCurso').html(`Mis Cursos`);
         $('.nav-link').removeClass('active');
-        $('.nav-linkSistemas').addClass('active');
-        $('.submenu-link').removeClass('active');
-        $('.submenu-link'+subpage).addClass('active');
-        tablas('tblLista'+subpage);
+        $('.nav-linkMisCursos').addClass('active');
+        // tablas('tblLisUsuarios');
     }
 }
 
@@ -668,6 +666,34 @@ function generarCertificado(){
 
 }
 
+// función para generar el certificacion
+function generarCertificacion(){
+    
+    let tipo = "generarCertificacion";
+    let cc = $('#optionsCedulas01').val();
+
+    // let ruta = 'extensions/pdf/index.php?paramPDF=certificado&dni=';
+    console.log(cc);
+    // window.location.href = ruta;
+    // window.open(ruta + cc, '_blank');
+    $.ajax({
+        type: "POST",
+        url: "php/controler.php",
+        data: "tipo=" + tipo + "&dni=" + cc,
+        success: function(r) {
+            if (r == 'success') {
+                sweetAlertType('success','listReportes');
+                cerrarModal('generarCertificado');
+            }else if(r == 'error'){
+                sweetAlertType('error','listReportes');
+            }else if(r == 'info'){
+                sweetAlertType('info','listReportes');
+            }
+        }
+    });
+
+}
+
 // función que limpia formularios por id
 function limpiarFormulario(nombre) {
     document.getElementById(nombre).reset();
@@ -765,6 +791,89 @@ function changeForm(form) {
     // }
 }
 
+// sweetAlert
+function sweetAlertType(type,page, id = false) {
+    $(function(){
+        if (type == 'success') {
+            if (id=='imprFac') {
+                Swal.fire({
+                    icon: "success",
+                    title: "Factura contabilizada correctamente"
+                });
+            }else{
+                Swal.fire({
+                    icon: "success",
+                    title: "Registrado correctamente"
+                }).then(() => {
+                    if (id===false) {
+                        contenido(page);
+                    }else{
+                        contenido(page,id);
+                    }
+                });
+            }
+        }
+        if (type == 'error') {
+            Swal.fire({
+                icon: "error",
+                title: "El registro no se pudo realizar"
+            });
+        }
+        if (type == 'info') {
+            Swal.fire({
+                icon: "info",
+                title: "Algunos campos obligatorios deben contener valores"
+            });
+        }
+        if (type == 'emailExist') {
+            Swal.fire({
+                icon: "info",
+                title: "El email ya existe, por favor modifiquelo"
+            });
+        }
+        if (type == 'refExist') {
+            Swal.fire({
+                icon: "info",
+                title: "la referencia de producto ya existe, por favor modifiquelo"
+            });
+        }
+        if (type == 'stockFalse') {
+            Swal.fire({
+                icon: "info",
+                title: "maneja stock con error, por favor modifiquelo"
+            });
+        }
+        if (type == 'stock') {
+            Swal.fire({
+                icon: "info",
+                title: "La cantidad supera nuestras unidades disponibles en stock"
+            });
+        }
+        if (type == 'eliminado') {
+            Swal.fire({
+                icon: "success",
+                title: "Eliminado correctamente"
+            }).then(() => {
+                contenido(page);
+            });
+        }
+        if (type == 'eliminar') {
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: "¿Quieres eliminar el registro seleccionado?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#198754',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si, eliminar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    ConfirmEliminar(id,page);
+                }
+            });
+        }
+    });
+}
 
 // evitar que el dormulario de ingreso de pedido haga submit
 $(function () {
@@ -773,3 +882,8 @@ $(function () {
     });
 });
 
+
+// Necesario para cerrar cualquier modal
+function cerrarModal(idBtn) {
+    $('.'+idBtn).click();
+}

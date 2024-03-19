@@ -15,12 +15,12 @@
     <div class="d-flex justify-content-end navbar-collapse zindex">
         <nav id="sidebar" class="active mt-4 rounded-left shadow bg-white d-flex p-3">
             <ul class="list-unstyled components pl-0 text-center">
-                <li class="my-2">
+                <!-- <li class="my-2">
                     <a href="#"><span class="bi bi-cart h1" title="Ventas"></span></a>
                 </li>
                 <li class="my-2">
                     <a href="#"><span class="bi bi-box-seam h1" title="Productos"></span></a>
-                </li>
+                </li> -->
                 <li class="my-2">
                     <a href="#"><span class="bi bi-gear h1" title="Configuración"></span></a>
                 </li>

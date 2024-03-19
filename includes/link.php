@@ -10,3 +10,6 @@
 <link rel="stylesheet" href="fonts/node_modules/bootstrap-icons/font/bootstrap-icons.css">
 <!-- data tables-->
 <link rel="stylesheet" href="extensions/datatables/dataTables.bootstrap4.min.css">
+
+<!-- Sweet Alert 2 -->
+<link rel="stylesheet" href="extensions/sweetalert2/sweetalert2.min.css">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-03-2024 a las 05:22:43
+-- Tiempo de generación: 19-03-2024 a las 04:40:41
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 7.4.30
 
@@ -47,6 +47,26 @@ INSERT INTO `certificados` (`cert_id`, `cert_nombre`, `cert_int_horaria`, `cert_
 ('6201fcfe92ea0', 'Técnico Progración de Software', 1000, '2', '1', '2022-02-08 00:17:50', 1),
 ('65e2917683c10', 'Manipulacion de alimentos', 100, '1', '', '2024-03-01 21:39:50', 1),
 ('65e2943fc3b65', 'Curso de baño de animales', 50, '1', '', '2024-03-01 21:51:43', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `consecutivos`
+--
+
+CREATE TABLE `consecutivos` (
+  `cons_name` varchar(255) COLLATE utf8_spanish2_ci NOT NULL,
+  `cons_numero` int(11) NOT NULL,
+  `cons_status` int(11) NOT NULL DEFAULT 1 COMMENT '0:inactivo; 1:activoM'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `consecutivos`
+--
+
+INSERT INTO `consecutivos` (`cons_name`, `cons_numero`, `cons_status`) VALUES
+('certificado', 449, 1),
+('carnet', 449, 1);
 
 -- --------------------------------------------------------
 
@@ -99,7 +119,8 @@ CREATE TABLE `usuarios` (
   `usu_correo` varchar(255) COLLATE utf8_spanish2_ci NOT NULL,
   `usu_pass` varchar(255) COLLATE utf8_spanish2_ci NOT NULL,
   `usu_rol` varchar(255) COLLATE utf8_spanish2_ci NOT NULL,
-  `usu_prueba` int(11) NOT NULL DEFAULT 0 COMMENT 'valor en porcentaje teniendo en cuenta que se basa en 10 preguntas',
+  `usu_prueba` int(11) NOT NULL DEFAULT 0 COMMENT 'valor en porcentaje teniendo en cuenta que se basa en 8 preguntas',
+  `usu_certificado` int(11) NOT NULL DEFAULT 0 COMMENT '0:no certificado; 1:certificado',
   `usu_fecha` datetime NOT NULL DEFAULT current_timestamp(),
   `usu_status` int(11) NOT NULL DEFAULT 1 COMMENT '0: INACTIVO, 1: ACTIVO'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
@@ -108,9 +129,9 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`usu_id`, `usu_dni`, `usu_ciudad_dep`, `usu_nombre`, `usu_correo`, `usu_pass`, `usu_rol`, `usu_prueba`, `usu_fecha`, `usu_status`) VALUES
-(1, 23124762, 'Pereira R', 'Administrador', 'admin@mail.com', '123', '64645990cb1d4', 0, '2022-02-09 00:17:35', 1),
-(2, 1010075303, 'Armenia Q', 'Sebastian Aguirre Vallejo', 'sebasaguire@mail.com', '123', '64645990cbqw1', 0, '2024-02-09 22:16:20', 1);
+INSERT INTO `usuarios` (`usu_id`, `usu_dni`, `usu_ciudad_dep`, `usu_nombre`, `usu_correo`, `usu_pass`, `usu_rol`, `usu_prueba`, `usu_certificado`, `usu_fecha`, `usu_status`) VALUES
+(1, 23124762, 'Pereira R', 'Administrador', 'admin@mail.com', '123', '64645990cb1d4', 0, 0, '2022-02-09 00:17:35', 1),
+(2, 1010075303, 'Armenia Q', 'Sebastian Aguirre Vallejo', 'sebasaguire@mail.com', '123', '64645990cbqw1', 75, 1, '2024-02-09 22:16:20', 1);
 
 --
 -- Índices para tablas volcadas

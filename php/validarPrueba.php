@@ -2,7 +2,7 @@
     session_start();
     error_reporting(0);
     if($_SESSION['userID']){
-        $usu_id=$_SESSION['userID'];
+        $usu_id = $_SESSION['userID'];
         $usuRol = $_SESSION['userROL'];
 
         if ($usuRol == '64645990cb1d4') {
@@ -46,8 +46,7 @@
                             session_start();
                             if($_SESSION['userID']){
                         ?>
-                                <li class="nav-item"><a class="cursor nav-link nav-linkLogin" onclick="contenido('realizarCurso',3)" >Realizar Curso</a></li>
-                                <li class="nav-item"><a class="cursor nav-link nav-linkLogin" onclick="contenido('login',2)" ><span class="bi bi-person h4"></span></a></li>
+                                <li class="nav-item"><a class="cursor nav-link nav-linkLogin" onclick="contenido('realizarCurso',3)" >Inicio</a></li>
                         <?php
                                 }else{
                         ?>
@@ -79,10 +78,8 @@
                         $pregunta_6 = $_POST['pregunta_6'];
                         $pregunta_7 = $_POST['pregunta_7'];
                         $pregunta_8 = $_POST['pregunta_8'];
-                        $pregunta_9 = $_POST['pregunta_9'];
-                        $pregunta_10 = $_POST['pregunta_10'];
                         
-                        if ( $pregunta_1 == "" ||  $pregunta_2 == "" ||  $pregunta_3 == "" ||  $pregunta_4 == "" ||  $pregunta_5 == "" ||  $pregunta_6 == "" ||  $pregunta_7 == "" ||  $pregunta_8 == "" ||  $pregunta_9 == "" ||  $pregunta_10 == "")  {
+                        if ( $pregunta_1 == "" ||  $pregunta_2 == "" ||  $pregunta_3 == "" ||  $pregunta_4 == "" ||  $pregunta_5 == "" ||  $pregunta_6 == "" ||  $pregunta_7 == "" ||  $pregunta_8 == "")  {
                             $html = '<div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
                                         <h5 class="alert-heading">¡¡ Algo salió mal, todas las repuestas deben ser contestadas !! </h5>
                                         <button type="button" class="btn btn-danger" data-dismiss="alert" aria-label="Close">
@@ -92,16 +89,14 @@
 
                             echo $html;
                         }else {
-                            $rescorrect_1 = 1;
-                            $rescorrect_2 = 4;
-                            $rescorrect_3 = 2;
-                            $rescorrect_4 = 3;
-                            $rescorrect_5 = 1;
-                            $rescorrect_6 = 1;
-                            $rescorrect_7 = 4;
-                            $rescorrect_8 = 3;
-                            $rescorrect_9 = 2;
-                            $rescorrect_10 = 1;
+                            $rescorrect_1 = 4;
+                            $rescorrect_2 = 1;
+                            $rescorrect_3 = 3;
+                            $rescorrect_4 = 1;
+                            $rescorrect_5 = 4;
+                            $rescorrect_6 = 4;
+                            $rescorrect_7 = 1;
+                            $rescorrect_8 = 1;
 
                             $rescorrect = 0;
                             $porcentaje = 0;
@@ -109,80 +104,81 @@
                             if ($pregunta_1 == $rescorrect_1) {
                                 $rescorrect = $rescorrect+1;
 
-                                $porcentaje = ($rescorrect * 100)/10;
+                                $porcentaje = ($rescorrect * 100)/8;
 
                             }
                             if ($pregunta_2 == $rescorrect_2) {
                                 $rescorrect = $rescorrect+1;
 
-                                $porcentaje = ($rescorrect * 100)/10;
+                                $porcentaje = ($rescorrect * 100)/8;
 
                             }
                             if ($pregunta_3 == $rescorrect_3) {
                                 $rescorrect = $rescorrect+1;
 
-                                $porcentaje = ($rescorrect * 100)/10;
+                                $porcentaje = ($rescorrect * 100)/8;
 
                             }
                             if ($pregunta_4 == $rescorrect_4) {
                                 $rescorrect = $rescorrect+1;
 
-                                $porcentaje = ($rescorrect * 100)/10;
+                                $porcentaje = ($rescorrect * 100)/8;
 
                             }
                             if ($pregunta_5 == $rescorrect_5) {
                                 $rescorrect = $rescorrect+1;
 
-                                $porcentaje = ($rescorrect * 100)/10;
+                                $porcentaje = ($rescorrect * 100)/8;
 
                             }
                             if ($pregunta_6 == $rescorrect_6) {
                                 $rescorrect = $rescorrect+1;
 
-                                $porcentaje = ($rescorrect * 100)/10;
+                                $porcentaje = ($rescorrect * 100)/8;
 
                             }
                             if ($pregunta_7 == $rescorrect_7) {
                                 $rescorrect = $rescorrect+1;
 
-                                $porcentaje = ($rescorrect * 100)/10;
+                                $porcentaje = ($rescorrect * 100)/8;
 
                             }
                             if ($pregunta_8 == $rescorrect_8) {
                                 $rescorrect = $rescorrect+1;
 
-                                $porcentaje = ($rescorrect * 100)/10;
-
-                            }
-                            if ($pregunta_9 == $rescorrect_9) {
-                                $rescorrect = $rescorrect+1;
-
-                                $porcentaje = ($rescorrect * 100)/10;
-
-                            }
-                            if ($pregunta_10 == $rescorrect_10) {
-                                $rescorrect = $rescorrect+1;
-
-                                $porcentaje = ($rescorrect * 100)/10;
+                                $porcentaje = ($rescorrect * 100)/8;
 
                             }
 
                             if ($porcentaje>=50) {
+                                include 'conexion-bd.php';
 
-                                ?>
-                                    <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
-                                        <h4 class="alert-heading"> <strong>!! Felicitaciones pasaste la prueba ¡¡</strong></h4> <hr> <h5> El porcentaje de la prueba fue de:  <?php echo $porcentaje; ?>% </h5>
-                                        
-                                        <br>
-                                        <h6>Comunicate con un asesor para solicitar el certificado y el carnet de manipulación de alimentos.</h6>
-                                        
-                                        <button type="button" class="btn btn-outline-dark">
-                                            <span>Comunicar un asesor</span>
-                                        </button>
-                                    </div>
+                                $registrarPrueba = mysqli_query($conexion,"UPDATE usuarios SET usu_prueba = $porcentaje WHERE usu_id = $usu_id ");
 
-                                    
-                                <?php
+                                
+                                if ($registrarPrueba) {
+                                    ?>
+                                        <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+                                            <h4 class="alert-heading"> <strong>!! Felicitaciones pasaste la prueba ¡¡</strong></h4> <hr> <h5> El porcentaje de la prueba fue de:  <?php echo $porcentaje; ?>% </h5>
+                                            
+                                            <br>
+                                            <h6>Comunicate con un asesor para solicitar el certificado y el carnet de manipulación de alimentos.</h6>
+                                            
+                                            <button type="button" class="btn btn-outline-dark">
+                                                <span>Comunicar un asesor</span>
+                                            </button>
+                                        </div>
+                                    <?php
+                                }else {
+                                    ?>
+                                        <div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
+                                            <h4 class="alert-heading"> <strong>Lo sentimos no se registró el puntaje en la base de datos.</strong></h4>
+                                            <button type="button" class="btn btn-danger" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">Cerrar</span>
+                                            </button>
+                                        </div>
+                                    <?php
+                                }
 
                             }else {
                                 ?>
@@ -207,93 +203,75 @@
                         <ol>
                             <div class="">
                                 <li>
-                                    <p>Primer pregunta</p>
+                                    <p>¿Qué es un manipulador?</p>
                                 </li>
-                                <input type="radio" name="pregunta_1" value="1" id="respuesta_1_1" <?php if($pregunta_1 == '1') echo 'checked'; ?>><label for="respuesta_1_1" class="cursor mx-3"> Respuesta 1</label><br>
-                                <input type="radio" name="pregunta_1" value="2" id="respuesta_2_1" <?php if($pregunta_1 == '2') echo 'checked'; ?>><label for="respuesta_2_1" class="cursor mx-3"> Respuesta 2</label><br>
-                                <input type="radio" name="pregunta_1" value="3" id="respuesta_3_1" <?php if($pregunta_1 == '3') echo 'checked'; ?>><label for="respuesta_3_1" class="cursor mx-3"> Respuesta 3</label><br>
-                                <input type="radio" name="pregunta_1" value="4" id="respuesta_4_1" <?php if($pregunta_1 == '4') echo 'checked'; ?>><label for="respuesta_4_1" class="cursor mx-3"> Respuesta 4</label>
+                                <input type="radio" name="pregunta_1" value="1" id="respuesta_1_1" <?php if($pregunta_1 == '1') echo 'checked'; ?>><label for="respuesta_1_1" class="cursor mx-3">Un panadero</label><br>
+                                <input type="radio" name="pregunta_1" value="2" id="respuesta_2_1" <?php if($pregunta_1 == '2') echo 'checked'; ?>><label for="respuesta_2_1" class="cursor mx-3">Un mesero</label><br>
+                                <input type="radio" name="pregunta_1" value="3" id="respuesta_3_1" <?php if($pregunta_1 == '3') echo 'checked'; ?>><label for="respuesta_3_1" class="cursor mx-3">Una cocinera</label><br>
+                                <input type="radio" name="pregunta_1" value="4" id="respuesta_4_1" <?php if($pregunta_1 == '4') echo 'checked'; ?>><label for="respuesta_4_1" class="cursor mx-3">Todas las anteriores</label>
                             </div>
                             <div class="mt-4">
                                 <li>
-                                    <p>Pregunta #2</p>
+                                    <p>Un manipulador debe tener </p>
                                 </li>
-                                <input type="radio" name="pregunta_2" value="1" id="respuesta_1_2" <?php if($pregunta_2 == '1') echo 'checked'; ?>><label for="respuesta_1_2" class="cursor mx-3"> Respuesta 1</label><br>
-                                <input type="radio" name="pregunta_2" value="2" id="respuesta_2_2" <?php if($pregunta_2 == '2') echo 'checked'; ?>><label for="respuesta_2_2" class="cursor mx-3"> Respuesta 2</label><br>
-                                <input type="radio" name="pregunta_2" value="3" id="respuesta_3_2" <?php if($pregunta_2 == '3') echo 'checked'; ?>><label for="respuesta_3_2" class="cursor mx-3"> Respuesta 3</label><br>
-                                <input type="radio" name="pregunta_2" value="4" id="respuesta_4_2" <?php if($pregunta_2 == '4') echo 'checked'; ?>><label for="respuesta_4_2" class="cursor mx-3"> Respuesta 4</label>
+                                <input type="radio" name="pregunta_2" value="1" id="respuesta_1_2" <?php if($pregunta_2 == '1') echo 'checked'; ?>><label for="respuesta_1_2" class="cursor mx-3">Cofia, tapa bocas, delantal, etc.</label><br>
+                                <input type="radio" name="pregunta_2" value="2" id="respuesta_2_2" <?php if($pregunta_2 == '2') echo 'checked'; ?>><label for="respuesta_2_2" class="cursor mx-3">Delantal roto y sucio </label><br>
+                                <input type="radio" name="pregunta_2" value="3" id="respuesta_3_2" <?php if($pregunta_2 == '3') echo 'checked'; ?>><label for="respuesta_3_2" class="cursor mx-3">Sin Tapa bocas</label><br>
+                                <input type="radio" name="pregunta_2" value="4" id="respuesta_4_2" <?php if($pregunta_2 == '4') echo 'checked'; ?>><label for="respuesta_4_2" class="cursor mx-3">Calzado tenis para el lugar de trabajo</label>
                             </div>
                             <div class="mt-4">
                                 <li>
-                                    <p>Pregunta #3</p>
+                                    <p>¿Cuál es la resolución de manipulación de alimentos?</p>
                                 </li>
-                                <input type="radio" name="pregunta_3" value="1" id="respuesta_1_3" <?php if($pregunta_3 == '1') echo 'checked'; ?>><label for="respuesta_1_3" class="cursor mx-3"> Respuesta 1</label><br>
-                                <input type="radio" name="pregunta_3" value="2" id="respuesta_2_3" <?php if($pregunta_3 == '2') echo 'checked'; ?>><label for="respuesta_2_3" class="cursor mx-3"> Respuesta 2</label><br>
-                                <input type="radio" name="pregunta_3" value="3" id="respuesta_3_3" <?php if($pregunta_3 == '3') echo 'checked'; ?>><label for="respuesta_3_3" class="cursor mx-3"> Respuesta 3</label><br>
-                                <input type="radio" name="pregunta_3" value="4" id="respuesta_4_3" <?php if($pregunta_3 == '4') echo 'checked'; ?>><label for="respuesta_4_3" class="cursor mx-3"> Respuesta 4</label>
+                                <input type="radio" name="pregunta_3" value="1" id="respuesta_1_3" <?php if($pregunta_3 == '1') echo 'checked'; ?>><label for="respuesta_1_3" class="cursor mx-3">2076</label><br>
+                                <input type="radio" name="pregunta_3" value="2" id="respuesta_2_3" <?php if($pregunta_3 == '2') echo 'checked'; ?>><label for="respuesta_2_3" class="cursor mx-3">2054</label><br>
+                                <input type="radio" name="pregunta_3" value="3" id="respuesta_3_3" <?php if($pregunta_3 == '3') echo 'checked'; ?>><label for="respuesta_3_3" class="cursor mx-3">2674</label><br>
+                                <input type="radio" name="pregunta_3" value="4" id="respuesta_4_3" <?php if($pregunta_3 == '4') echo 'checked'; ?>><label for="respuesta_4_3" class="cursor mx-3">2975</label>
                             </div>
                             <div class="mt-4">
                                 <li>
-                                    <p>Pregunta #4</p>
+                                    <p>¿Cómo podemos evitar la Contaminación de alimentos? </p>
                                 </li>
-                                <input type="radio" name="pregunta_4" value="1" id="respuesta_1_4" <?php if($pregunta_4 == '1') echo 'checked'; ?>><label for="respuesta_1_4" class="cursor mx-3"> Respuesta 1</label><br>
-                                <input type="radio" name="pregunta_4" value="2" id="respuesta_2_4" <?php if($pregunta_4 == '2') echo 'checked'; ?>><label for="respuesta_2_4" class="cursor mx-3"> Respuesta 2</label><br>
-                                <input type="radio" name="pregunta_4" value="3" id="respuesta_3_4" <?php if($pregunta_4 == '3') echo 'checked'; ?>><label for="respuesta_3_4" class="cursor mx-3"> Respuesta 3</label><br>
-                                <input type="radio" name="pregunta_4" value="4" id="respuesta_4_4" <?php if($pregunta_4 == '4') echo 'checked'; ?>><label for="respuesta_4_4" class="cursor mx-3"> Respuesta 4</label>
+                                <input type="radio" name="pregunta_4" value="1" id="respuesta_1_4" <?php if($pregunta_4 == '1') echo 'checked'; ?>><label for="respuesta_1_4" class="cursor mx-3">Limpiar, cocinar, separar,  enfriar </label><br>
+                                <input type="radio" name="pregunta_4" value="2" id="respuesta_2_4" <?php if($pregunta_4 == '2') echo 'checked'; ?>><label for="respuesta_2_4" class="cursor mx-3">no Separar poner en el suelo</label><br>
+                                <input type="radio" name="pregunta_4" value="3" id="respuesta_3_4" <?php if($pregunta_4 == '3') echo 'checked'; ?>><label for="respuesta_3_4" class="cursor mx-3">no Cocinar y dejar totalmente crudo</label><br>
+                                <input type="radio" name="pregunta_4" value="4" id="respuesta_4_4" <?php if($pregunta_4 == '4') echo 'checked'; ?>><label for="respuesta_4_4" class="cursor mx-3">no guardar la cadena de frio</label>
                             </div>
                             <div class="mt-4">
                                 <li>
-                                    <p>Pregunta #5</p>
+                                    <p>¿Cómo se pueden contaminar los alimentos?</p>
                                 </li>
-                                <input type="radio" name="pregunta_5" value="1" id="respuesta_1_5" <?php if($pregunta_5 == '1') echo 'checked'; ?>><label for="respuesta_1_5" class="cursor mx-3"> Respuesta 1</label><br>
-                                <input type="radio" name="pregunta_5" value="2" id="respuesta_2_5" <?php if($pregunta_5 == '2') echo 'checked'; ?>><label for="respuesta_2_5" class="cursor mx-3"> Respuesta 2</label><br>
-                                <input type="radio" name="pregunta_5" value="3" id="respuesta_3_5" <?php if($pregunta_5 == '3') echo 'checked'; ?>><label for="respuesta_3_5" class="cursor mx-3"> Respuesta 3</label><br>
-                                <input type="radio" name="pregunta_5" value="4" id="respuesta_4_5" <?php if($pregunta_5 == '4') echo 'checked'; ?>><label for="respuesta_4_5" class="cursor mx-3"> Respuesta 4</label>
+                                <input type="radio" name="pregunta_5" value="1" id="respuesta_1_5" <?php if($pregunta_5 == '1') echo 'checked'; ?>><label for="respuesta_1_5" class="cursor mx-3">buena higiene personal</label><br>
+                                <input type="radio" name="pregunta_5" value="2" id="respuesta_2_5" <?php if($pregunta_5 == '2') echo 'checked'; ?>><label for="respuesta_2_5" class="cursor mx-3">Áreas y productos separados</label><br>
+                                <input type="radio" name="pregunta_5" value="3" id="respuesta_3_5" <?php if($pregunta_5 == '3') echo 'checked'; ?>><label for="respuesta_3_5" class="cursor mx-3">Buena manipulación de alimentos, BPM</label><br>
+                                <input type="radio" name="pregunta_5" value="4" id="respuesta_4_5" <?php if($pregunta_5 == '4') echo 'checked'; ?>><label for="respuesta_4_5" class="cursor mx-3">Equipos sucios y presencia de plagas, etc.</label>
                             </div>
                             <div class="mt-4">
                                 <li>
-                                    <p>Pregunta #6</p>
+                                    <p>Los microorganismos se pueden transportar</p>
                                 </li>
-                                <input type="radio" name="pregunta_6" value="1" id="respuesta_1_6" <?php if($pregunta_6 == '1') echo 'checked'; ?>><label for="respuesta_1_6" class="cursor mx-3"> Respuesta 1</label><br>
-                                <input type="radio" name="pregunta_6" value="2" id="respuesta_2_6" <?php if($pregunta_6 == '2') echo 'checked'; ?>><label for="respuesta_2_6" class="cursor mx-3"> Respuesta 2</label><br>
-                                <input type="radio" name="pregunta_6" value="3" id="respuesta_3_6" <?php if($pregunta_6 == '3') echo 'checked'; ?>><label for="respuesta_3_6" class="cursor mx-3"> Respuesta 3</label><br>
-                                <input type="radio" name="pregunta_6" value="4" id="respuesta_4_6" <?php if($pregunta_6 == '4') echo 'checked'; ?>><label for="respuesta_4_6" class="cursor mx-3"> Respuesta 4</label>
+                                <input type="radio" name="pregunta_6" value="1" id="respuesta_1_6" <?php if($pregunta_6 == '1') echo 'checked'; ?>><label for="respuesta_1_6" class="cursor mx-3">Manos no contaminadas, utensilios higienizados , agua potable,</label><br>
+                                <input type="radio" name="pregunta_6" value="2" id="respuesta_2_6" <?php if($pregunta_6 == '2') echo 'checked'; ?>><label for="respuesta_2_6" class="cursor mx-3">Alimentos bien preparados, manos recién lavadas, agua con gas</label><br>
+                                <input type="radio" name="pregunta_6" value="3" id="respuesta_3_6" <?php if($pregunta_6 == '3') echo 'checked'; ?>><label for="respuesta_3_6" class="cursor mx-3">En el transporte público en las nubes</label><br>
+                                <input type="radio" name="pregunta_6" value="4" id="respuesta_4_6" <?php if($pregunta_6 == '4') echo 'checked'; ?>><label for="respuesta_4_6" class="cursor mx-3">Aire, agua, insectos manos sucias agua no potable, alimentos mal preparados </label>
                             </div>
                             <div class="mt-4">
                                 <li>
-                                    <p>Pregunta #7</p>
+                                    <p>Se deben seleccionar los equipos y utensilios</p>
                                 </li>
-                                <input type="radio" name="pregunta_7" value="1" id="respuesta_1_7" <?php if($pregunta_7 == '1') echo 'checked'; ?>><label for="respuesta_1_7" class="cursor mx-3"> Respuesta 1</label><br>
-                                <input type="radio" name="pregunta_7" value="2" id="respuesta_2_7" <?php if($pregunta_7 == '2') echo 'checked'; ?>><label for="respuesta_2_7" class="cursor mx-3"> Respuesta 2</label><br>
-                                <input type="radio" name="pregunta_7" value="3" id="respuesta_3_7" <?php if($pregunta_7 == '3') echo 'checked'; ?>><label for="respuesta_3_7" class="cursor mx-3"> Respuesta 3</label><br>
-                                <input type="radio" name="pregunta_7" value="4" id="respuesta_4_7" <?php if($pregunta_7 == '4') echo 'checked'; ?>><label for="respuesta_4_7" class="cursor mx-3"> Respuesta 4</label>
+                                <input type="radio" name="pregunta_7" value="1" id="respuesta_1_7" <?php if($pregunta_7 == '1') echo 'checked'; ?>><label for="respuesta_1_7" class="cursor mx-3">Tipo de alimento,  materia prima, insumo y Tecnología a emplear</label><br>
+                                <input type="radio" name="pregunta_7" value="2" id="respuesta_2_7" <?php if($pregunta_7 == '2') echo 'checked'; ?>><label for="respuesta_2_7" class="cursor mx-3">Minina. capacidad de Pdn</label><br>
+                                <input type="radio" name="pregunta_7" value="3" id="respuesta_3_7" <?php if($pregunta_7 == '3') echo 'checked'; ?>><label for="respuesta_3_7" class="cursor mx-3">Difícil de limpiar y desinfectar</label><br>
+                                <input type="radio" name="pregunta_7" value="4" id="respuesta_4_7" <?php if($pregunta_7 == '4') echo 'checked'; ?>><label for="respuesta_4_7" class="cursor mx-3">Mal Diseñados, mal construidos, mal instalados, mal mantenidos</label>
                             </div>
                             <div class="mt-4">
                                 <li>
-                                    <p>Pregunta #8</p>
+                                    <p>Toda empresa de alimentos deben tener </p>
                                 </li>
-                                <input type="radio" name="pregunta_8" value="1" id="respuesta_1_8" <?php if($pregunta_8 == '1') echo 'checked'; ?>><label for="respuesta_1_8" class="cursor mx-3"> Respuesta 1</label><br>
-                                <input type="radio" name="pregunta_8" value="2" id="respuesta_2_8" <?php if($pregunta_8 == '2') echo 'checked'; ?>><label for="respuesta_2_8" class="cursor mx-3"> Respuesta 2</label><br>
-                                <input type="radio" name="pregunta_8" value="3" id="respuesta_3_8" <?php if($pregunta_8 == '3') echo 'checked'; ?>><label for="respuesta_3_8" class="cursor mx-3"> Respuesta 3</label><br>
-                                <input type="radio" name="pregunta_8" value="4" id="respuesta_4_8" <?php if($pregunta_8 == '4') echo 'checked'; ?>><label for="respuesta_4_8" class="cursor mx-3"> Respuesta 4</label>
-                            </div>
-                            <div class="mt-4">
-                                <li>
-                                    <p>Pregunta #9</p>
-                                </li>
-                                <input type="radio" name="pregunta_9" value="1" id="respuesta_1_9" <?php if($pregunta_9 == '1') echo 'checked'; ?>><label for="respuesta_1_9" class="cursor mx-3"> Respuesta 1</label><br>
-                                <input type="radio" name="pregunta_9" value="2" id="respuesta_2_9" <?php if($pregunta_9 == '2') echo 'checked'; ?>><label for="respuesta_2_9" class="cursor mx-3"> Respuesta 2</label><br>
-                                <input type="radio" name="pregunta_9" value="3" id="respuesta_3_9" <?php if($pregunta_9 == '3') echo 'checked'; ?>><label for="respuesta_3_9" class="cursor mx-3"> Respuesta 3</label><br>
-                                <input type="radio" name="pregunta_9" value="4" id="respuesta_4_9" <?php if($pregunta_9 == '4') echo 'checked'; ?>><label for="respuesta_4_9" class="cursor mx-3"> Respuesta 4</label>
-                            </div>
-                            <div class="mt-4">
-                                <li>
-                                    <p>Pregunta #10</p>
-                                </li>
-                                <input type="radio" name="pregunta_10" value="1" id="respuesta_1_0" <?php if($pregunta_10 == '1') echo 'checked'; ?>><label for="respuesta_1_0" class="cursor mx-3"> Respuesta 1</label><br>
-                                <input type="radio" name="pregunta_10" value="2" id="respuesta_2_0" <?php if($pregunta_10 == '2') echo 'checked'; ?>><label for="respuesta_2_0" class="cursor mx-3"> Respuesta 2</label><br>
-                                <input type="radio" name="pregunta_10" value="3" id="respuesta_3_0" <?php if($pregunta_10 == '3') echo 'checked'; ?>><label for="respuesta_3_0" class="cursor mx-3"> Respuesta 3</label><br>
-                                <input type="radio" name="pregunta_10" value="4" id="respuesta_4_0" <?php if($pregunta_10 == '4') echo 'checked'; ?>><label for="respuesta_4_0" class="cursor mx-3"> Respuesta 4</label>
+                                <input type="radio" name="pregunta_8" value="1" id="respuesta_1_8" <?php if($pregunta_8 == '1') echo 'checked'; ?>><label for="respuesta_1_8" class="cursor mx-3">Programa de limpieza y desinfección, Manejo de residuos sólidos y plagas y Agua potable</label><br>
+                                <input type="radio" name="pregunta_8" value="2" id="respuesta_2_8" <?php if($pregunta_8 == '2') echo 'checked'; ?>><label for="respuesta_2_8" class="cursor mx-3">Área de Pintura y construcción </label><br>
+                                <input type="radio" name="pregunta_8" value="3" id="respuesta_3_8" <?php if($pregunta_8 == '3') echo 'checked'; ?>><label for="respuesta_3_8" class="cursor mx-3">Lavado de ropas ajenas</label><br>
+                                <input type="radio" name="pregunta_8" value="4" id="respuesta_4_8" <?php if($pregunta_8 == '4') echo 'checked'; ?>><label for="respuesta_4_8" class="cursor mx-3">Peinados y maquillaje</label>
                             </div>
                         </ol>
                         <div class="col-12 col-md-5 col-lg-5 col-xl-5 text-center m-auto">

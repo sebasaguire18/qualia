@@ -13,20 +13,23 @@
         $dni = $_GET['dni'];
         $today = date("Y-m-d H:i:s"); 
 
-        // $consultarPedido = mysqli_query($conexion,"SELECT * FROM pedidos WHERE id = $id");
-        // $mostrarPedido=mysqli_fetch_array($consultarPedido);
-
-        // $consultarPedidoDetalle = mysqli_query($conexion,"SELECT * FROM pedidosdetalle WHERE id_pedido = $id AND status = 3 GROUP BY id_producto");
+        $consultarUsuario = mysqli_query($conexion,"SELECT * FROM usuarios WHERE usu_dni = $dni");
+        $mostrarUsuario=mysqli_fetch_array($consultarUsuario);
         
         include 'funciones.php';
-        
-        // $iva = calcularIVA($mostrarPedido['subtotal'],$mostrarPedido['iva']);
 
+        $certificacion = $mostrarUsuario['usu_certificado'];
 
-        // recoger el contenido del html
-        ob_start();
-        require_once 'print_view.php';
-        $html = ob_get_clean();
+        // Validar si tiene certificacion 
+        if ($certificacion == 1) {
+            // recoger el contenido del html
+            ob_start();
+            require_once 'print_view.php';
+            $html = ob_get_clean();
+        }else {
+            error_reporting(0);
+            echo 'No se le ha generado la certificación al usuario registrado con CC: '. $dni;
+        }
 
         
         $marges = array(7, 12, 7, 7);

@@ -8,14 +8,14 @@
     </button>
     <div class="collapse navbar-collapse row" id="navbarMenulistCertificados">
         <nav class="col-12 col-md-6 d-flex flex-md-row">
-            <a class="nav-link cursor m-auto" title="Crear Nuevo Certificado" data-toggle="modal" data-target="#nuevoCertificado"><span class="bi bi-file-earmark-plus h3 text-primary hoverH3"></span></a>
-            <a class="nav-link cursor m-auto" title="lista de Certificados Cancelados" data-toggle="modal" data-target="#listCertificadosCancelados"><span class="bi bi-file-earmark-excel h3 text-primary hoverH3"></span></a>
-            <a class="nav-link cursor m-auto" title="Generar Nuevo Certificado" data-toggle="modal" data-target="#generarCertificado"><span class="bi bi-file-earmark-medical h3 text-primary hoverH3"></span></a>
+            <a class="nav-link cursor m-auto" title="Generar Nuevo Certificado" data-toggle="modal" data-target="#generarCertificado"><span class="bi bi-file-earmark-medical h1 text-primary hoverH3"></span></a>
+            <!-- <a class="nav-link cursor m-auto" title="Crear Nuevo Certificado" data-toggle="modal" data-target="#nuevoCertificado"><span class="bi bi-file-earmark-plus h3 text-primary hoverH3"></span></a>
+            <a class="nav-link cursor m-auto" title="lista de Certificados Cancelados" data-toggle="modal" data-target="#listCertificadosCancelados"><span class="bi bi-file-earmark-excel h3 text-primary hoverH3"></span></a> -->
         </nav>
         <nav class="col-12 col-md-6 d-flex flex-md-row justify-content-end">
-            <a class="nav-link cursor m-auto" title="Firmas Certificados" data-toggle="modal" data-target="#firmaCertificados"><span class="bi bi-pen h3 text-primary hoverH3"></span></a>
+            <!-- <a class="nav-link cursor m-auto" title="Firmas Certificados" data-toggle="modal" data-target="#firmaCertificados"><span class="bi bi-pen h3 text-primary hoverH3"></span></a>
             <a class="nav-link cursor m-auto" title="" data-toggle="modal" data-target="#"><span class="bi bi-plus-circle h3 text-primary hoverH3"></span></a>
-            <a class="nav-link cursor m-auto" title="" data-toggle="modal" data-target="#"><span class="bi bi-plus-circle h3 text-primary hoverH3"></span></a>
+            <a class="nav-link cursor m-auto" title="" data-toggle="modal" data-target="#"><span class="bi bi-plus-circle h3 text-primary hoverH3"></span></a> -->
         </nav>
     </div>
 </div>
@@ -119,7 +119,8 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-secondary generarCertificado" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-success" onclick="generarCertificacion()">Generar Certificación</button>
                 <button type="button" class="btn btn-primary" onclick="generarCertificado()">Mostrar plantilla</button>
             </div>
         </div>

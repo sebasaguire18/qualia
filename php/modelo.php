@@ -1,6 +1,21 @@
 <?php
 
 
+function generarCertificacion($dni){
+    include 'conexion-bd.php';
+
+    // $id = uniqid();
+
+    $generarCertificado = mysqli_query($conexion,"UPDATE usuarios SET usu_certificado = 1 WHERE usu_dni = $dni ");
+    
+    if ($generarCertificado) {
+        return true;
+    }else {
+        return false;
+    }
+
+}
+
 function nuevoCertificado($inputNombreCertificado,$inputIntHoraria,$inputTipoCertificado,$usu_id){
     include 'conexion-bd.php';
 

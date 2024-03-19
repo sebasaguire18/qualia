@@ -7,6 +7,27 @@ include 'modelo.php';
 
 $tipo = $_POST['tipo'];
 
+if ($tipo == 'generarCertificacion') {
+    
+    $dni = $_POST['dni'];
+    
+    if ( $dni == "")  {
+        $html = 'info';
+        echo $html;
+    }else {
+        $generarCertificacion=generarCertificacion($dni);
+
+        if ($generarCertificacion === true) {
+            $html = 'success';
+            echo $html;
+        }else {
+            $html = 'error';
+            echo $html;
+        }
+    }
+
+}
+
 if ($tipo == 'nuevoCertificado') {
     
     $inputNombreCertificado = $_POST['inputNombreCertificado'];
