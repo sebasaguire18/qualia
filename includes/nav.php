@@ -6,7 +6,6 @@
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
                 
                 <?php   
-                    session_start();
                     if($_SESSION['userID']){
                 ?>
                         <li class="nav-item"><a class="cursor nav-link nav-linkRealizarCurso" onclick="contenido('realizarCurso',2)" >Realizar Curso</a></li>

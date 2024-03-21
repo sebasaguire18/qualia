@@ -43,11 +43,11 @@
     <div style="position:absolute;">
         <img src="../../images/certificado.png" width="100%">
     </div>
-    <div style="width:100%; text-align: right;padding-top:15px; padding-right:20px;">
-        <h2><?php echo consultarConsecutivo('certificado'); ?></h2>
+    <div style="width:100%; text-align: right;padding-top:5px; padding-right:20px;">
+        <h2>001</h2>
     </div>
     <div style="width:100%; text-align: center;padding-top:210px; padding-right:20px;">
-        <p style="font-size:40px;"><?php echo consultarNombreEstudiante($dni); ?></p>
+        <p style="font-size:40px;"><?php echo consultarNombreEstudiante($dni) ?></p>
     </div>
     <div style="width:100%; text-align: center;padding-top:25px; padding-right:20px;">
         <p style="font-size:25px;">CC. <?php echo $dni; ?> de <?php echo consultarCiudadDni($dni); ?></p>
@@ -57,7 +57,9 @@
     </div> -->
     <table style="width: 100%; border-collapse: collapse; margin: 10px 0; padding-top:290px;">
         <tr style="width: 100%; text-align: center;">
-            <td style="width: 50%; font-size:20px; padding-left:90px"> día <?php echo formatoAFecha($today); ?></td>
+            <td style="width: 30%; font-size:18px; padding-left:65px"><?php echo obtenerDia($today); ?></td>
+            <td style="width: 20%; font-size:16px; padding: auto 20px;text-align:left;"><p><?php echo formatoAFecha($today); ?></p></td>
+            <td style="width: 20%; font-size:16px; padding: auto 0px;text-align:left;"><p>2024</p></td>
         </tr>
     </table>
     

@@ -1,9 +1,10 @@
 <?php
     session_start();
-    error_reporting(0);
+    // error_reporting(0);
     if($_SESSION['userID']){
         $usu_id=$_SESSION['userID'];
         $usuRol = $_SESSION['userROL'];
+        $usuDni = $_SESSION['userDNI'];
 
         if ($usuRol == '64645990cb1d4') {
             header("location: welcome.php");

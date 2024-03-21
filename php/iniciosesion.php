@@ -26,8 +26,10 @@ if($filas==1){
         
         $ejecutar_nombre=mysqli_query($conexion, $nombre);
         $mostrar_nombre=mysqli_fetch_array($ejecutar_nombre);
-        $_SESSION['userID']=$mostrar_nombre['usu_id'];
-        $_SESSION['userROL']=$mostrar_nombre['usu_rol'];
+        $_SESSION['userID']     = $mostrar_nombre['usu_id'];
+        $_SESSION['userROL']    = $mostrar_nombre['usu_rol'];
+        $_SESSION['userDNI']    = $mostrar_nombre['usu_dni'];
+        
         mysqli_free_result($resultado); 
         mysqli_close($conexion);
           

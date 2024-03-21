@@ -9,7 +9,27 @@ function generarCertificacion($dni){
     $generarCertificado = mysqli_query($conexion,"UPDATE usuarios SET usu_certificado = 1 WHERE usu_dni = $dni ");
     
     if ($generarCertificado) {
-        return true;
+        $seleccionarConsCert = mysqli_query($conexion,"SELECT * FROM consecutivos WHERE cons_name = 'certificado' ");
+        $mostrarConsCert = mysqli_fetch_array($seleccionarConsCert);
+        $numeroConsNuevoCert = $mostrarConsCert['cons_numero'];
+
+        $actualizarConsCert = mysqli_query($conexion,"UPDATE consecutivos SET cons_numero = $numeroConsNuevoCert WHERE cons_name = 'certificado' ");
+
+        if ($actualizarConsCert) {
+            $seleccionarConsCarnet = mysqli_query($conexion,"SELECT * FROM consecutivos WHERE  cons_name = 'carnet' ");
+            $mostrarConsCarnet = mysqli_fetch_array($seleccionarConsCarnet);
+            $numeroConsNuevoCarnet = $mostrarConsCarnet['cons_numero'];
+
+            $actualizarConsCarnet = mysqli_query($conexion,"UPDATE consecutivos SET cons_numero = $numeroConsNuevoCarnet WHERE cons_name = 'carnet' ");
+
+            if ($actualizarConsCarnet) {
+                return true;
+            }else {
+                return false;
+            }
+        }else {
+            return false;
+        }
     }else {
         return false;
     }

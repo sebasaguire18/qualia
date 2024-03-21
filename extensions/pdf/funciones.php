@@ -37,8 +37,8 @@
                         "Octubre",
                         "Noviembre",
                         "Diciembre");
-
-            $fechaCF=date('d',strtotime($fecha))." de ". $mes[date('n',strtotime($fecha))] . " de " . date('Y',strtotime($fecha));
+            $dia=date('d');
+            $fechaCF=date($dia,strtotime($fecha))." de ". $mes[date('n',strtotime($fecha))] . " de " . date('Y',strtotime($fecha));
 
             return $fechaCF;
         }
@@ -127,6 +127,22 @@
     }
 
 // fin consultar nombre del Proveedor dependiendo del id
+
+// consultar nombre del estudiante segun el dni
+
+    function consultarConsecutivo($tipo){ 
+        
+        include '../../php/conexion-bd.php';
+        
+        $consultarConsecutivo= mysqli_query($conexion,"SELECT * FROM consecutivos WHERE cons_name = '$tipo' ");
+        $mostrarConsecutivo = mysqli_fetch_array($consultarConsecutivo);
+
+        return $mostrarConsecutivo['cons_numero'];
+
+
+    }
+
+// fin consultar nombre del estudiante segun el dni
 
 // consultar nombre de la Referencia de Proveedor dependiendo del id
 
