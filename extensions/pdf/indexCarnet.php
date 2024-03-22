@@ -11,10 +11,11 @@
 
         $paramPDF = $_GET['paramPDF'];
         $dni = $_GET['dni'];
-        $today = date("Y-m-d H:i:s"); 
 
         $consultarUsuario = mysqli_query($conexion,"SELECT * FROM usuarios WHERE usu_dni = $dni");
         $mostrarUsuario=mysqli_fetch_array($consultarUsuario);
+
+        $today = $mostrarUsuario['usu_cert_fecha'];
         
         include 'funciones.php';
 
@@ -24,7 +25,7 @@
         if ($certificacion == 1) {
             // recoger el contenido del html
             ob_start();
-            require_once 'print_view.php';
+            require_once 'print_viewCarnet.php';
             $html = ob_get_clean();
         }else {
             error_reporting(0);
@@ -36,7 +37,7 @@
 
         $html2pdf = new Html2pdf('p','A4','es','true','UTF-8',$marges);
         $html2pdf -> writeHTML($html);
-        $html2pdf -> output('certificado_'.$dni.'.pdf');
+        $html2pdf -> output('carnet_'.$dni.'.pdf');
         
     }else {
         header("location:javascript:history.go(-1);");

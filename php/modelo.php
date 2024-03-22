@@ -5,20 +5,21 @@ function generarCertificacion($dni){
     include 'conexion-bd.php';
 
     // $id = uniqid();
+    $today = date("Y-m-d H:i:s"); 
 
-    $generarCertificado = mysqli_query($conexion,"UPDATE usuarios SET usu_certificado = 1 WHERE usu_dni = $dni ");
+    $generarCertificado = mysqli_query($conexion,"UPDATE usuarios SET usu_certificado = 1, usu_cert_fecha = '$today' WHERE usu_dni = $dni ");
     
     if ($generarCertificado) {
         $seleccionarConsCert = mysqli_query($conexion,"SELECT * FROM consecutivos WHERE cons_name = 'certificado' ");
         $mostrarConsCert = mysqli_fetch_array($seleccionarConsCert);
-        $numeroConsNuevoCert = $mostrarConsCert['cons_numero'];
+        $numeroConsNuevoCert = $mostrarConsCert['cons_numero']+1;
 
         $actualizarConsCert = mysqli_query($conexion,"UPDATE consecutivos SET cons_numero = $numeroConsNuevoCert WHERE cons_name = 'certificado' ");
 
         if ($actualizarConsCert) {
             $seleccionarConsCarnet = mysqli_query($conexion,"SELECT * FROM consecutivos WHERE  cons_name = 'carnet' ");
             $mostrarConsCarnet = mysqli_fetch_array($seleccionarConsCarnet);
-            $numeroConsNuevoCarnet = $mostrarConsCarnet['cons_numero'];
+            $numeroConsNuevoCarnet = $mostrarConsCarnet['cons_numero']+1;
 
             $actualizarConsCarnet = mysqli_query($conexion,"UPDATE consecutivos SET cons_numero = $numeroConsNuevoCarnet WHERE cons_name = 'carnet' ");
 

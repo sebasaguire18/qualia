@@ -47,26 +47,26 @@
 // fin Fecha
 
 // Fecha
-    function obtenerDia($fecha){
+    function fechaVence($fecha){
             
-        date_default_timezone_set('America/Bogota');
-
         $mes = array("","Enero",
-                "Febrero",
-                "Marzo",
-                "Abril",
-                "Mayo",
-                "Junio",
-                "Julio",
-                "Agosto",
-                "Septiembre",
-                "Octubre",
-                "Noviembre",
-                "Diciembre");
+                        "Febrero",
+                        "Marzo",
+                        "Abril",
+                        "Mayo",
+                        "Junio",
+                        "Julio",
+                        "Agosto",
+                        "Septiembre",
+                        "Octubre",
+                        "Noviembre",
+                        "Diciembre");
 
-        $dia=date('d',strtotime($fecha));
+        $dia = date('d')-1;
+        $year = date('Y')+1;
+        $fechaCF = date($dia,strtotime($fecha))." de ". $mes[date('n',strtotime($fecha))] . " de " . date($year,strtotime($fecha));
 
-        return $dia;
+        return $fechaCF;
     }
 
 // fin Fecha

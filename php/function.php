@@ -101,5 +101,15 @@ function selectCertificados($status,$uso){
     <?php
 }
 
+// consultar si el usuario tiene o no generado el curso segun id user
 
+function validarCertificado($user_dni) {
+    include 'conexion-bd.php';
+
+    $seleccionarCertificado = mysqli_query($conexion,"SELECT * FROM usuarios WHERE usu_dni = $user_dni");
+    $certificado = mysqli_fetch_array($seleccionarCertificado);
+
+    return $certificado['usu_certificado'];
+    
+}
 ?>

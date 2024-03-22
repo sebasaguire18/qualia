@@ -11,10 +11,11 @@
 
         $paramPDF = $_GET['paramPDF'];
         $dni = $_GET['dni'];
-        $today = date("Y-m-d H:i:s"); 
 
         $consultarUsuario = mysqli_query($conexion,"SELECT * FROM usuarios WHERE usu_dni = $dni");
         $mostrarUsuario=mysqli_fetch_array($consultarUsuario);
+        
+        $today = $mostrarUsuario['usu_cert_fecha'];
         
         include 'funciones.php';
 

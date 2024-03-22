@@ -28,6 +28,17 @@ function contenido(ventana,$index=false) {
                     $('#contentIndex').html(r);
                 }
             });
+        } else if (ventana == 'recursos') {
+            $.ajax({
+                type: "POST",
+                url: "pages/recursos.php",
+                data: "ventana=" + ventana,
+                success: function(r) {
+                    $('#contentIndex').html(``);
+                    configPage('recursos');
+                    $('#contentIndex').html(r);
+                }
+            });
         } else if (ventana == 'login') {
             $.ajax({
                 type: "POST",
@@ -62,6 +73,17 @@ function contenido(ventana,$index=false) {
                 success: function(r) {
                     $('#contentIndexCurso').html(``);
                     configPage('realizarCurso');
+                    $('#contentIndexCurso').html(r);
+                }
+            });
+        } else if (ventana == 'recursos') {
+            $.ajax({
+                type: "POST",
+                url: "pages/recursos.php",
+                data: "ventana=" + ventana,
+                success: function(r) {
+                    $('#contentIndexCurso').html(``);
+                    configPage('recursos1');
                     $('#contentIndexCurso').html(r);
                 }
             });
@@ -194,6 +216,24 @@ function configPage(page,subpage=false) {
         $('#titlePage').html(`Inicio`);
         $('.nav-link').removeClass('active');
         $('.nav-linkInicio').addClass('active');
+        // tablas('tblListaProductos');
+    }
+    if (page == 'contenido') {
+        $('#titlePage').html(`Contenido`);
+        $('.nav-link').removeClass('active');
+        $('.nav-linkContenido').addClass('active');
+        // tablas('tblListaProductos');
+    }
+    if (page == 'recursos') {
+        $('#titlePage').html(`Recursos`);
+        $('.nav-link').removeClass('active');
+        $('.nav-linkRecursos').addClass('active');
+        // tablas('tblListaProductos');
+    }
+    if (page == 'recursos1') {
+        $('#titlePageCurso').html(`Recursos`);
+        $('.nav-link').removeClass('active');
+        $('.nav-linkRecursos').addClass('active');
         // tablas('tblListaProductos');
     }
     if (page == 'realizarCurso') {

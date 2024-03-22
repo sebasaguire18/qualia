@@ -10,13 +10,14 @@
                 ?>
                         <li class="nav-item"><a class="cursor nav-link nav-linkRealizarCurso" onclick="contenido('realizarCurso',2)" >Realizar Curso</a></li>
                         <li class="nav-item"><a class="cursor nav-link nav-linkMisCursos" onclick="contenido('misCursos',2)" >Mis cursos</a></li>
+                        <li class="nav-item"><a class="cursor nav-link nav-linkRecursos" onclick="contenido('recursos',2)" >Recursos</a></li>
                         <li class="nav-item"><a class="cursor nav-link" href="php/cerrarsesion.php" title="Cerrar Sesión"><span class="bi bi-box-arrow-right h4 text-danger"></span></a></li>
                 <?php
                         }else{
                 ?>
                         <li class="nav-item"><a class="cursor nav-link nav-linkInicio"  onclick="contenido('inicio',1)">Inicio</a></li>
                         <li class="nav-item"><a class="cursor nav-link nav-linkContenido" onclick="contenido('contenido',1)" >Contenido Del Curso</a></li>
-                        <li class="nav-item"><a class="cursor nav-link nav-link" onclick="contenido('',1)" >Projects</a></li>
+                        <li class="nav-item"><a class="cursor nav-link nav-linkRecursos" onclick="contenido('recursos',1)" >Recursos</a></li>
                         <li class="nav-item"><a class="cursor nav-link nav-linkLogin" onclick="contenido('login',1)" ><span class="bi bi-person h4"></span> |  <span class="bi bi-person-plus h4"></span></a></li>
                 <?php
                         }
