@@ -35,7 +35,7 @@
     
     <?php include 'includes/script.php'; ?>
     <script>
-        contenido('inicio',1);
+        contenido('listReportes');
     </script>
 </body>
 </html>

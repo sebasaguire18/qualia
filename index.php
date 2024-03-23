@@ -52,6 +52,8 @@
                 </div>
             </div>
         </div>
+        <a href="https://wa.me/573002329453?text=Quiero%20contactarme%20con%20un%20asesor." target="_blank" class="back-to-top-l d-flex align-items-center justify-content-center active"><i class="bi bi-whatsapp"></i></a>
+
     </main>
 
 

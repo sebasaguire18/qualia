@@ -8,10 +8,10 @@
                     <img src="images/t1.png" class="img-fluid">
                 </div>
                 <br>
-                <p>De acuerdo con este orden de importancia y según nuestra constitución política, una resolución no puede modificar  un decreto. Eso significa que el <span class="text-green">Decreto 3075 del 97</span> sigue vigente y la <span class="text-orange">Resolución 2674  del 2013</span> lo complementa. ¡En resumen, se <b>DEBEN</b> que cumplir las dos!</p>
+                <p>De acuerdo con este orden de importancia y según nuestra constitución política, una resolución no puede modificar  un decreto. Eso significa que el <span class="text-green cursor" title="Descargar recurso" onclick="contenido('recursos',2)">Decreto 3075 del 97</span> sigue vigente y la <span class="text-orange cursor" title="Descargar recurso" onclick="contenido('recursos',2)">Resolución 2674  del 2013</span> lo complementa. ¡En resumen, se <b>DEBEN</b> que cumplir las dos!</p>
             </div>
             <div class="col-12 col-md-3 col-lg-3 col-xl-3 text-center">
-                <img src="images/t1.1.png" class="img-fluid">
+                <img src="images/t1.1.png" class="img-fluid cursor" title="Descargar recursos" onclick="contenido('recursos',2)">
             </div>
         <?php
     }elseif ($page == 2) {

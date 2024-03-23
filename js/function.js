@@ -98,14 +98,14 @@ function contenido(ventana,$index=false) {
                     $('#contentIndexCurso').html(r);
                 }
             });          
-        } else if (ventana == 'login') {
+        } else if (ventana == 'perfil') {
             $.ajax({
                 type: "POST",
-                url: "pages/login.php",
+                url: "pages/perfil.php",
                 data: "ventana=" + ventana,
                 success: function(r) {
                     $('#contentIndexCurso').html(``);
-                    configPage('login');
+                    configPage('perfil');
                     $('#contentIndexCurso').html(r);
                 }
             });
@@ -224,6 +224,12 @@ function configPage(page,subpage=false) {
         $('.nav-linkContenido').addClass('active');
         // tablas('tblListaProductos');
     }
+    if (page == 'Perfil') {
+        $('#titlePage').html(`Perfil`);
+        $('.nav-link').removeClass('active');
+        $('.nav-linkPerfil').addClass('active');
+        // tablas('tblListaProductos');
+    }
     if (page == 'recursos') {
         $('#titlePage').html(`Recursos`);
         $('.nav-link').removeClass('active');
@@ -284,6 +290,8 @@ function curso(page) {
     $('#bodyContenidoCurso').html(``);
     $('#tituloContenidoCurso').html(``);
     loading('bodyContenidoCurso');
+
+    cerrarModal('modalContentCurso');
 
     $.ajax({
         type: "POST",

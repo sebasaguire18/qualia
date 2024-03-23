@@ -164,9 +164,9 @@
                                             <br>
                                             <h6>Comunicate con un asesor para solicitar el certificado y el carnet de manipulación de alimentos.</h6>
                                             
-                                            <button type="button" class="btn btn-outline-dark">
+                                            <a href="https://wa.me/573002329453?text=Quiero%20contactarme%20con%20un%20asesor,%20ya%20realicé%20la%20prueba.%20Pocentaje%20de%20<?php echo $porcentaje?>%" target="_blank" class="btn btn-outline-dark">
                                                 <span>Comunicar un asesor</span>
-                                            </button>
+                                            </a>
                                         </div>
                                     <?php
                                 }else {

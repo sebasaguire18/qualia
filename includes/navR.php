@@ -1,6 +1,6 @@
 <div class="fixed-top w-100 d-flex px-3 pt-2">
     <div class="w-50 d-flex justify-content-start">
-        <button class="btn cursor bgTransparent rounded-circle zindex pt-2 shadow" onclick="contenido('inicio')">
+        <button class="btn cursor bgTransparent rounded-circle zindex pt-2 shadow" onclick="contenido('listReportes')">
             <span class="bi bi-house text-black"></span>
         </button>
     </div>
@@ -21,12 +21,12 @@
                 <li class="my-2">
                     <a href="#"><span class="bi bi-box-seam h1" title="Productos"></span></a>
                 </li> -->
-                <li class="my-2">
+                <!-- <li class="my-2">
                     <a href="#"><span class="bi bi-gear h1" title="Configuración"></span></a>
                 </li>
                 <li class="my-2">
                     <a href="#"><span class="bi bi-question-lg h1" title="Ayuda"></span></a>
-                </li>
+                </li> -->
                 <li class="my-2">
                     <a href="php/cerrarsesion.php"><span class="bi bi-power h1" title="Salir"></span></a>
                 </li>

@@ -9,7 +9,7 @@
                     <h1 class="display-3 fw-bolder mb-5"><span class="text-gradient d-inline">Manipulación de alimentos</span></h1>
                     <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3">
                         <a class="btn btn-primary btn-lg py-3 me-sm-3 fs-6 fw-bolder" onclick="contenido('login',1)">Iniciar Sesión</a>
-                        <a class="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder" href="" target="_blank">Comunicar un Asesor</a>
+                        <a class="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder" href="https://wa.me/573002329453?text=Quiero%20contactarme%20con%20un%20asesor." target="_blank">Comunicar un Asesor</a>
                     </div>
                 </div>
             </div>

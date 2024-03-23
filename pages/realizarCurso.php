@@ -1,3 +1,10 @@
+<?php 
+    include '../php/function.php';
+    
+    session_start(); 
+    $user_id = $_SESSION['userID'];
+    $user_dni = $_SESSION['userDNI'];
+?>
 <!-- Page Content-->
 <div class="container-fluid px-md-3 px-lg-5 px-xl-5 px-xxl-5 my-5">
     <div class="row mb-3 align-items-center justify-content-end">
@@ -24,7 +31,7 @@
                 <div class="offcanvas offcanvas-start bg-beige" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
                     <div class="offcanvas-header">
                         <h5 class="offcanvas-title" id="offcanvasExampleLabel">Contenido del curso</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        <button type="button" class="btn-close modalContentCurso" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body">
                         <ol class="list-group list-group-numbered">
@@ -89,13 +96,15 @@
                                 <!-- <span class="badge bg-primary rounded-pill">14</span> -->
                             </li>
                         </ol>
-                        <ul class="list-group mt-3">
-                            <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start cursor indiceList" id="indice-11" onclick="redir('php/validarPrueba.php')">
-                                <div class="ms-2 me-auto">
-                                    <div class="fw-bold">Prueba Final</div>
-                                </div>
-                            </li>
-                        </ul>
+                        <?php if (validarCertificado($user_dni) == 0) { ?>
+                            <ul class="list-group mt-3">
+                                <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start cursor indiceList" id="indice-11" onclick="redir('php/validarPrueba.php')">
+                                    <div class="ms-2 me-auto">
+                                        <div class="fw-bold">Prueba Final</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        <?php } ?>
                     </div>
                 </div>
 
@@ -191,6 +200,17 @@
                 <div class="d-flex align-items-center justify-content-between my-3">
                     <button class="btn btn-primary btn-atras" onclick=""><span class="bi bi-arrow-left"> &nbsp Anterior </span></button>
                     <button class="btn btn-primary btn-siguiente" onclick="curso(2)"> Siguiente &nbsp <span class="bi bi-arrow-right"></span></button>
+                </div>
+                <div class="d-flex align-items-center justify-content-end my-3">
+                    <?php if (validarCertificado($user_dni) == 0) { ?>
+                        <ul class="list-group mt-3">
+                            <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start cursor active shadow" onclick="redir('php/validarPrueba.php')">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold">Prueba Final</div>
+                                </div>
+                            </li>
+                        </ul>
+                    <?php } ?>
                 </div>
                 
             </section>
