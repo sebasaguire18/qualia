@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-03-2024 a las 04:40:41
+-- Tiempo de generación: 23-03-2024 a las 04:51:06
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 7.4.30
 
@@ -65,8 +65,8 @@ CREATE TABLE `consecutivos` (
 --
 
 INSERT INTO `consecutivos` (`cons_name`, `cons_numero`, `cons_status`) VALUES
-('certificado', 449, 1),
-('carnet', 449, 1);
+('certificado', 451, 1),
+('carnet', 451, 1);
 
 -- --------------------------------------------------------
 
@@ -121,6 +121,7 @@ CREATE TABLE `usuarios` (
   `usu_rol` varchar(255) COLLATE utf8_spanish2_ci NOT NULL,
   `usu_prueba` int(11) NOT NULL DEFAULT 0 COMMENT 'valor en porcentaje teniendo en cuenta que se basa en 8 preguntas',
   `usu_certificado` int(11) NOT NULL DEFAULT 0 COMMENT '0:no certificado; 1:certificado',
+  `usu_cert_fecha` datetime DEFAULT NULL,
   `usu_fecha` datetime NOT NULL DEFAULT current_timestamp(),
   `usu_status` int(11) NOT NULL DEFAULT 1 COMMENT '0: INACTIVO, 1: ACTIVO'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
@@ -129,9 +130,14 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`usu_id`, `usu_dni`, `usu_ciudad_dep`, `usu_nombre`, `usu_correo`, `usu_pass`, `usu_rol`, `usu_prueba`, `usu_certificado`, `usu_fecha`, `usu_status`) VALUES
-(1, 23124762, 'Pereira R', 'Administrador', 'admin@mail.com', '123', '64645990cb1d4', 0, 0, '2022-02-09 00:17:35', 1),
-(2, 1010075303, 'Armenia Q', 'Sebastian Aguirre Vallejo', 'sebasaguire@mail.com', '123', '64645990cbqw1', 75, 1, '2024-02-09 22:16:20', 1);
+INSERT INTO `usuarios` (`usu_id`, `usu_dni`, `usu_ciudad_dep`, `usu_nombre`, `usu_correo`, `usu_pass`, `usu_rol`, `usu_prueba`, `usu_certificado`, `usu_cert_fecha`, `usu_fecha`, `usu_status`) VALUES
+(1, 23124762, 'Pereira R', 'Administrador', 'admin@mail.com', '123', '64645990cb1d4', 0, 0, NULL, '2022-02-09 00:17:35', 1),
+(2, 1010075303, 'Armenia Q', 'Sebastian Aguirre Vallejo', 'sebasaguire@mail.com', '123', '64645990cbqw1', 100, 0, '2024-03-22 03:46:50', '2024-02-09 22:16:20', 1),
+(3, 1005087224, 'Armenia Q.', 'Yuliana Ocampo', 'yuliana@mail.com', '123', '64645990cbqw1', 88, 1, '2024-03-22 03:51:12', '2024-03-21 19:49:16', 1),
+(4, 7529854, 'Armenia Q', 'Humberto Aguirre Mendoza', 'humberto@mail.com', '123', '64645990cbqw1', 0, 0, NULL, '2024-03-22 22:43:51', 1),
+(5, 4597180, 'Anserma C', 'Juan Saul Vallejo Obando', 'juan@mail.com', '123', '64645990cbqw1', 0, 0, NULL, '2024-03-22 22:45:50', 1),
+(6, 599889, 'Armenia Q', 'Maria Argenis Torres', 'maria@mail.com', '123', '64645990cbqw1', 0, 0, NULL, '2024-03-22 22:48:09', 1),
+(7, 123456678, 'Pereira R', 'Pepito Perez', 'pepito@mail.com', '123', '64645990cbqw1', 0, 0, NULL, '2024-03-22 22:49:40', 1);
 
 --
 -- Índices para tablas volcadas
@@ -163,7 +169,7 @@ ALTER TABLE `empresas`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `usu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `usu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

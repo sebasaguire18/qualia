@@ -823,6 +823,96 @@ function iniciarSesion() {
 
 }
 
+// Función para iniciar sesión
+function registrarUsuario() {
+
+    let tipo = 'registrarUsuario';
+
+    let nameUsuario = $('#nameUsuario').val();
+    let dniUsuario = $('#dniUsuario').val();
+    let ciudadUsuario = $('#ciudadUsuario').val();
+    let emailUsuario = $('#emailUsuario').val();
+    let passUsuario = $('#passUsuario').val();
+
+    let exprNumber = /^[0-9.]+$/;
+    let exprEmail = /^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-z0-9\-\.]+$/;
+
+
+    $('#spanNameUsuario','#spanDniUsuario','#spanCiudadUsuario','#spanEmailUsuario','#spanEmailUsuarioError','#spanPassUsuario').addClass('d-none');
+    $('#nameUsuario','#dniUsuario','#ciudadUsuario','#emailUsuario','#passUsuario').removeClass('border-danger');
+
+    if(nameUsuario == ''){
+        $('#nameUsuario').addClass('border-danger');
+        $('#spanNameUsuario').removeClass('d-none');
+        return false;
+    }else{
+        $('#nameUsuario').removeClass('border-danger');
+        $('#spanNameUsuario').addClass('d-none');
+        if(dniUsuario == '' || !exprNumber.test(dniUsuario)){
+            $('#dniUsuario').addClass('border-danger');
+            $('#spanDniUsuario').removeClass('d-none');
+            return false;
+        }else{
+            $('#dniUsuario').removeClass('border-danger');
+            $('#spanDniUsuario').addClass('d-none');
+            if(ciudadUsuario == ''){
+                $('#ciudadUsuario').addClass('border-danger');
+                $('#spanCiudadUsuario').removeClass('d-none');
+                return false;
+            }else{
+                $('#ciudadUsuario').removeClass('border-danger');
+                $('#spanCiudadUsuario').addClass('d-none');
+                if(emailUsuario == '' || !exprEmail.test(emailUsuario)){
+                    $('#emailUsuario').addClass('border-danger');
+                    $('#spanEmailUsuario').removeClass('d-none');
+                    return false;
+                }else{
+                    $('#emailUsuario').removeClass('border-danger');
+                    $('#spanEmailUsuario').addClass('d-none');
+                    if(passUsuario == ''){
+                        $('#passUsuario').addClass('border-danger');
+                        $('#spanPassUsuario').removeClass('d-none');
+                        return false;
+                    }else{
+                        $('#passUsuario').removeClass('border-danger');
+                        $('#spanPassUsuario').addClass('d-none');
+
+                    }
+                    
+                    $('#btnRegistrarUsuario').text('Validando datos...');
+                    $('#spanNameUsuario','#spanDniUsuario','#spanCiudadUsuario','#spanEmailUsuario','#spanEmailUsuarioError','#spanPassUsuario').removeClass('border-danger');
+                    $('#nameUsuario','#dniUsuario','#ciudadUsuario','#emailUsuario','#passUsuario').addClass('d-none');
+                
+                    $.ajax({
+                        type: "POST",
+                        url: "php/controler.php",
+                        data: "tipo=" + tipo + "&nameUsuario=" + nameUsuario + "&dniUsuario=" + dniUsuario + "&ciudadUsuario=" + ciudadUsuario + "&emailUsuario=" + emailUsuario + "&passUsuario=" + passUsuario,
+                        success: function(r) {
+                            setTimeout(function(){
+                                if (r == 'success') {
+                                    sweetAlertType('success','login',1);
+                                }else if(r == 'error'){
+                                    sweetAlertType('error','login');
+                                }else if(r == 'info'){
+                                    sweetAlertType('info','login');
+                                }else if(r == 'emailExist'){
+                                    $('#emailUsuario').addClass('border-danger');
+                                    $('#spanEmailUsuarioError').removeClass('d-none');
+                                    $('#btnRegistrarUsuario').text('Validar');
+                                }else if(r == 'dniExist'){
+                                    $('#dniUsuario').addClass('border-danger');
+                                    $('#spanDniUsuarioError').removeClass('d-none');
+                                    $('#btnRegistrarUsuario').text('Validar');
+                                }
+                            }, 500);
+                        }
+                    });
+                }
+            }
+        }
+    }
+
+}
 
 // función que cambia de formularios para iniciar sesion, registrarse o recuperar contraseña
 function changeForm(form) {

@@ -1,1 +1,4 @@
-<?php $conexion=mysqli_connect("localhost","root","","qualia") or die("Problemas con la conexion"); ?>
+<?php 
+    // $conexion=mysqli_connect("localhost","root","","qualia") or die("Problemas con la conexion");
+    $conexion=mysqli_connect("localhost","u801406368_qualia","Qualia.2024","u801406368_qualia") or die("Problemas con la conexion");
+?>

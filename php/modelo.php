@@ -37,6 +37,41 @@ function generarCertificacion($dni){
 
 }
 
+function registrarUsuario($nameUsuario,$dniUsuario,$ciudadUsuario,$emailUsuario,$passUsuario){
+    include 'conexion-bd.php';
+
+    // $id = uniqid();
+    $today = date("Y-m-d H:i:s"); 
+
+   
+    $verificarEmailExist = mysqli_query($conexion,"SELECT * FROM usuarios WHERE usu_correo = '$emailUsuario'");
+    $verificarEE = mysqli_num_rows($verificarEmailExist);
+
+    if ($verificarEE == 0) {
+ 
+        $verificarDniExist = mysqli_query($conexion,"SELECT * FROM usuarios WHERE usu_dni = '$dniUsuario'");
+        $verificarDniE = mysqli_num_rows($verificarDniExist);
+    
+        if ($verificarDniE == 0) {
+    
+            $nuevoUsuario = mysqli_query($conexion,"INSERT INTO usuarios (usu_dni,usu_ciudad_dep,usu_nombre,usu_correo,usu_pass,usu_rol) 
+                                        VALUES($dniUsuario,'$ciudadUsuario','$nameUsuario','$emailUsuario','$passUsuario','64645990cbqw1')");
+            
+            if ($nuevoUsuario) {
+                return true;
+            }else {
+                return false;
+            }
+        }else{
+            return 'dniExist';
+        }
+    
+    }else{
+        return 'emailExist';
+    }
+
+}
+
 function nuevoCertificado($inputNombreCertificado,$inputIntHoraria,$inputTipoCertificado,$usu_id){
     include 'conexion-bd.php';
 

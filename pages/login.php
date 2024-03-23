@@ -38,48 +38,39 @@
             </div>
             <div class="row gx-5 justify-content-center">
                 <div class="col-lg-8 col-xl-6">
-                    <form>
+                    <form id="formRegistrarUsuario">
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="name" type="text" placeholder="Nombre completo" />
-                            <label for="name">Nombre completo</label>
-                            <div class="invalid-feedback">A name is required.</div>
+                            <input class="form-control" id="nameUsuario" type="text" placeholder="Nombre completo" />
+                            <label for="nameUsuario">Nombre completo</label>
+                            <div class="text-danger d-none" id="spanNameUsuario"> Por favor ingresa un nombre</div>
                         </div>
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="name" type="text" placeholder="Tipo de documento" />
-                            <label for="name">Tipo de documento</label>
-                            <div class="invalid-feedback">A name is required.</div>
+                            <input class="form-control" id="dniUsuario" type="text" placeholder="documento sin puntos" />
+                            <label for="dniUsuario">Documento de identidad <i>(sin puntos)</i></label>
+                            <div class="text-danger d-none" id="spanDniUsuario">Por favor ingresa el documento con solo valores numericos</div>
+                            <div class="text-danger d-none" id="spanDniUsuarioError">El documento ya se encuentra registrado, comuniquese con un asesor</div>
                         </div>
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="name" type="text" placeholder="Número de documento" />
-                            <label for="name">Número de documento</label>
-                            <div class="invalid-feedback">A name is required.</div>
+                            <input class="form-control" id="ciudadUsuario" type="text" placeholder="Ejm: Armenia Q" />
+                            <label for="ciudadUsuario">Ciudad de expedición</label>
+                            <div class="text-danger d-none" id="spanCiudadUsuario"> Por favor ingresa una ciudad valido</div>
                         </div>
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="name" type="text" placeholder="Email" />
-                            <label for="name">Email</label>
-                            <div class="invalid-feedback">A name is required.</div>
+                            <input class="form-control" id="emailUsuario" type="text" placeholder="Email" />
+                            <label for="emailUsuario">Email</label>
+                            <div class="text-danger d-none" id="spanEmailUsuario"> Por favor ingresa un email valido</div>
+                            <span class="text-danger d-none" id="spanEmailUsuarioError">Email encontrado, modifique el email</span>
                         </div>
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="pass" type="pass" placeholder="Contraseña" />
-                            <label for="pass">Contraseña</label>
-                            <div class="invalid-feedback">An email is required.</div>
-                            <div class="invalid-feedback">Email is not valid.</div>
+                            <input class="form-control" id="passUsuario" type="password" placeholder="Contraseña" />
+                            <label for="passUsuario">Contraseña</label>
+                            <div class="text-danger d-none" id="spanPassUsuario">Por favor ingresa la contraseña</div>
                         </div>
-                        <div class="form-floating mb-3">
-                            <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" />
-                            <label for="phone">Phone number</label>
-                            <div class="invalid-feedback">A phone number is required.</div>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem"></textarea>
-                            <label for="message">Message</label>
-                            <div class="invalid-feedback">A message is required.</div>
-                        </div>
+
                         <div class="my-5">
-                            <label onclick="changeForm('ini')" class="text-secondary cursor">¿No tienes cuenta?</label>
-                            <div class="invalid-feedback">A phone number is required.</div>
+                            <label onclick="changeForm('ini')" class="text-secondary cursor">¿Ya tienes una cuenta?</label>
                         </div>
-                        <div class="d-grid"><button class="btn btn-primary btn-lg" id="btnIniciarSesion" >Iniciar Sesión</button></div>
+                        <div class="d-grid"><a class="btn btn-primary btn-lg" id="btnRegistrarUsuario" onclick="registrarUsuario()">Validar</a></div>
                     </form>
                 </div>
             </div>

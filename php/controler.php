@@ -28,6 +28,37 @@ if ($tipo == 'generarCertificacion') {
 
 }
 
+if ($tipo == 'registrarUsuario') {
+    
+    $nameUsuario = $_POST['nameUsuario'];
+    $dniUsuario = $_POST['dniUsuario'];
+    $ciudadUsuario = $_POST['ciudadUsuario'];
+    $emailUsuario = $_POST['emailUsuario'];
+    $passUsuario = $_POST['passUsuario'];
+    
+    if ( $nameUsuario == "" || $dniUsuario == "" || $ciudadUsuario == "" || $emailUsuario == "" || $passUsuario == "" )  {
+        $html = 'info';
+        echo $html;
+    }else {
+        $registrarUsuario = registrarUsuario($nameUsuario,$dniUsuario,$ciudadUsuario,$emailUsuario,$passUsuario);
+
+        if ($registrarUsuario === true) {
+            $html = 'success';
+            echo $html;
+        }else if($registrarUsuario == 'emailExist'){
+            $html = 'emailExist';
+            echo $html;
+        }else if($registrarUsuario == 'dniExist'){
+            $html = 'dniExist';
+            echo $html;
+        }else {
+            $html = 'error';
+            echo $html;
+        }
+    }
+
+}
+
 if ($tipo == 'nuevoCertificado') {
     
     $inputNombreCertificado = $_POST['inputNombreCertificado'];
