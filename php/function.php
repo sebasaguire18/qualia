@@ -103,6 +103,18 @@ function selectCertificados($status,$uso){
 
 // consultar si el usuario tiene o no generado el curso segun id user
 
+function perfil($user_id,$campo) {
+    include 'conexion-bd.php';
+
+    $seleccionarUsuario = mysqli_query($conexion,"SELECT * FROM usuarios WHERE usu_id = $user_id AND $campo = $campo");
+    $usuario = mysqli_fetch_array($seleccionarUsuario);
+
+    return $usuario[$campo];
+    
+}
+
+// consultar si el usuario tiene o no generado el curso segun id user
+
 function validarCertificado($user_dni) {
     include 'conexion-bd.php';
 

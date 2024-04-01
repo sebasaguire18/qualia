@@ -52,7 +52,7 @@
                         </div>
                         <div class="form-floating mb-3">
                             <input class="form-control" id="ciudadUsuario" type="text" placeholder="Ejm: Armenia Q" />
-                            <label for="ciudadUsuario">Ciudad de expedición</label>
+                            <label for="ciudadUsuario">Ciudad de expedición, Ejm: Armenia Q</label>
                             <div class="text-danger d-none" id="spanCiudadUsuario"> Por favor ingresa una ciudad valido</div>
                         </div>
                         <div class="form-floating mb-3">

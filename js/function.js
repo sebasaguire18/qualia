@@ -914,6 +914,37 @@ function registrarUsuario() {
 
 }
 
+// Función para iniciar sesión
+function guardarDatosPerfil() {
+
+    let tipo = 'guardarDatosPerfil';
+
+    let perfilNombre = $('#perfilNombre').val();
+    let perfilDni = $('#perfilDni').val();
+    let perfilCiudad = $('#perfilCiudad').val();
+
+    $('#btnPerfil').text('Validando datos...');
+
+    $.ajax({
+        type: "POST",
+        url: "php/controler.php",
+        data: "tipo=" + tipo + "&perfilNombre=" + perfilNombre + "&perfilDni=" + perfilDni + "&perfilCiudad=" + perfilCiudad,
+        success: function(r) {
+            $('#btnPerfil').text('Validado');
+            setTimeout(function(){
+                if (r == 'success') {
+                    sweetAlertType('success','perfil',2);
+                }else if(r == 'error'){
+                    sweetAlertType('error','perfil');
+                }else if(r == 'info'){
+                    sweetAlertType('info','perfil');
+                }
+            }, 500);
+        }
+    });       
+
+}
+
 // función que cambia de formularios para iniciar sesion, registrarse o recuperar contraseña
 function changeForm(form) {
     if (form == 'regis') {

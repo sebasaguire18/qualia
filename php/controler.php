@@ -28,6 +28,29 @@ if ($tipo == 'generarCertificacion') {
 
 }
 
+if ($tipo == 'guardarDatosPerfil') {
+    
+    $perfilNombre = $_POST['perfilNombre'];
+    $perfilDni = $_POST['perfilDni'];
+    $perfilCiudad = $_POST['perfilCiudad'];
+    
+    if ( $perfilNombre == "" || $perfilDni == "" || $perfilCiudad == "")  {
+        $html = 'info';
+        echo $html;
+    }else {
+        $guardarDatosPerfil = guardarDatosPerfil($perfilNombre,$perfilDni,$perfilCiudad);
+
+        if ($guardarDatosPerfil === true) {
+            $html = 'success';
+            echo $html;
+        }else {
+            $html = 'error';
+            echo $html;
+        }
+    }
+
+}
+
 if ($tipo == 'registrarUsuario') {
     
     $nameUsuario = $_POST['nameUsuario'];
