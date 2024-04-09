@@ -62,6 +62,9 @@
     <script src="js/function.js"></script>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Sweet Alert 2 -->
+    <script src="extensions/sweetalert2/sweetalert2.all.min.js"></script>
+
     <!-- Core theme JS-->
     <!-- <script src="js/scripts.js"></script> -->
     <script>

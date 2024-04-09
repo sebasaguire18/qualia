@@ -44,30 +44,24 @@ function guardarDatosPerfil($perfilNombre,$perfilDni,$perfilCiudad){
     $today = date("Y-m-d H:i:s"); 
 
    
-    $verificarEmailExist = mysqli_query($conexion,"SELECT * FROM usuarios WHERE usu_correo = '$emailUsuario'");
-    $verificarEE = mysqli_num_rows($verificarEmailExist);
+    $verificarDniExist = mysqli_query($conexion,"SELECT * FROM usuarios WHERE usu_dni = '$perfilDni'");
+    $verificarDniE = mysqli_num_rows($verificarDniExist);
+    
+    if ($verificarDniE <> 0 ) {
+        $consultarUsuario = mysqli_query($conexion,"SELECT * FROM usuarios WHERE usu_dni = '$perfilDni'");
+        $usuario = mysqli_fetch_array($consultarUsuario);
 
-    if ($verificarEE == 0) {
- 
-        $verificarDniExist = mysqli_query($conexion,"SELECT * FROM usuarios WHERE usu_dni = '$dniUsuario'");
-        $verificarDniE = mysqli_num_rows($verificarDniExist);
-    
-        if ($verificarDniE == 0) {
-    
-            $nuevoUsuario = mysqli_query($conexion,"INSERT INTO usuarios (usu_dni,usu_ciudad_dep,usu_nombre,usu_correo,usu_pass,usu_rol) 
-                                        VALUES($dniUsuario,'$ciudadUsuario','$nameUsuario','$emailUsuario','$passUsuario','64645990cbqw1')");
-            
-            if ($nuevoUsuario) {
-                return true;
-            }else {
-                return false;
-            }
-        }else{
-            return 'dniExist';
+        $usu_id = $usuario['usu_id'];
+
+        $actualizarDatosPerfil = mysqli_query($conexion,"UPDATE usuarios SET usu_nombre = '$perfilNombre', usu_dni = $perfilDni, usu_ciudad_dep = '$perfilCiudad' WHERE usu_id = $usu_id ");
+
+        if ($actualizarDatosPerfil) {
+            return true;
+        }else {
+            return false;
         }
-    
     }else{
-        return 'emailExist';
+        return false;
     }
 
 }

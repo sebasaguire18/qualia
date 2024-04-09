@@ -105,7 +105,7 @@
         $consultarNombreEstudiante= mysqli_query($conexion,"SELECT * FROM usuarios WHERE usu_dni = $dni ");
         $mostrarNombre = mysqli_fetch_array($consultarNombreEstudiante);
 
-        return $mostrarNombre['usu_nombre'];
+        return strtoupper($mostrarNombre['usu_nombre']);
 
 
     }

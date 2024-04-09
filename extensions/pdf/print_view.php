@@ -43,19 +43,19 @@
     <div style="position:absolute;">
         <img src="../../images/certificado.png" width="100%">
     </div>
-    <div style="width:100%; text-align: right;padding-top:15px; padding-right:20px;">
+    <div style="width:100%; text-align: right;padding-top:18px; padding-right:20px;">
         <h2><?php echo consultarConsecutivo('certificado'); ?></h2>
     </div>
-    <div style="width:100%; text-align: center;padding-top:210px; padding-right:20px;">
-        <p style="font-size:40px;"><?php echo consultarNombreEstudiante($dni); ?></p>
+    <div style="width:100%; text-align: center;padding-top:212px; padding-right:20px;">
+        <p style="font-size:28px;"><?php echo consultarNombreEstudiante($dni); ?></p>
     </div>
     <div style="width:100%; text-align: center;padding-top:25px; padding-right:20px;">
-        <p style="font-size:25px;">CC. <?php echo $dni; ?> de <?php echo consultarCiudadDni($dni); ?></p>
+        <p style="font-size:18px;">CC. <?php echo $dni; ?> de <?php echo consultarCiudadDni($dni); ?></p>
     </div>
     <!-- <div style="width:100%; text-align: left;padding-top:302px; padding-left:135px;">
         <p style="font-size:18px;">17 <span style="margin-left:85px;">enero</span> <span style="margin-left:45px;">2024</span></p>
     </div> -->
-    <table style="width: 100%; border-collapse: collapse; margin: 10px 0; padding-top:290px;">
+    <table style="width: 100%; border-collapse: collapse; margin: 10px 0; padding-top:305px;">
         <tr style="width: 100%; text-align: center;">
             <td style="width: 50%; font-size:20px; padding-left:90px"> día <?php echo formatoAFecha($today); ?></td>
         </tr>

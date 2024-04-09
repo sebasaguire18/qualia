@@ -13,5 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
 
+
 <!-- Sweet Alert 2 -->
 <link rel="stylesheet" href="extensions/sweetalert2/sweetalert2.min.css">
+
