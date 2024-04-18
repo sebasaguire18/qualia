@@ -137,6 +137,7 @@ if ($tabla == 'tblLisUsuarios') {
             <th scope="col">DNI</th>
             <th scope="col">Nombre</th>
             <th scope="col">Correo</th>
+            <th scope="col">Certificado</th>
             <th scope="col">Fecha Creación</th>
             <th scope="col">Estado</th>
             </tr>
@@ -150,12 +151,18 @@ if ($tabla == 'tblLisUsuarios') {
         }elseif ($usuario['usu_status'] == 0) {
             $estadoUsu = 'Inactivo';
         }
+        if ($usuario['usu_certificado'] == 1) {
+            $certifiUsu = 'Certificado';
+        }elseif ($usuario['usu_certificado'] == 0) {
+            $certifiUsu = 'No certificado';
+        }
 ?>
         <tr>
             <td><?php echo $usuario['usu_id']; ?></td>
             <td><?php echo $usuario['usu_dni']; ?></td>
             <td><?php echo $usuario['usu_nombre']; ?></td>
             <td><?php echo $usuario['usu_correo']; ?></td>
+            <td><?php echo $certifiUsu; ?></td>
             <td><?php echo formatoAFecha($usuario['usu_fecha'],1); ?></td>
             <td><?php echo $estadoUsu ; ?></td>
         </tr>

@@ -2,6 +2,7 @@
 
 
 error_reporting(0);
+include 'function.php';
 include 'modelo.php';
 
 
@@ -58,6 +59,15 @@ if ($tipo == 'registrarUsuario') {
     $ciudadUsuario = $_POST['ciudadUsuario'];
     $emailUsuario = $_POST['emailUsuario'];
     $passUsuario = $_POST['passUsuario'];
+
+    if ($emailUsuario == 'N/A') {
+        $emailUsuario = generarCodigoAleatorio(6);
+    }
+    
+    if ($passUsuario == 'N/A') {
+        $passUsuario = generarCodigoAleatorio(6);
+    }
+
     
     if ( $nameUsuario == "" || $dniUsuario == "" || $ciudadUsuario == "" || $emailUsuario == "" || $passUsuario == "" )  {
         $html = 'info';

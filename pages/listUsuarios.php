@@ -7,15 +7,15 @@
     </button>
     <div class="collapse navbar-collapse row" id="navbarMenulistUsuarios">
         <nav class="col-12 col-md-6 d-flex flex-md-row">
-            <a class="nav-link cursor m-auto" title="Crear Nuevo Usuario" data-toggle="modal" data-target="#nuevoUsuario"><span class="bi bi-file-earmark-plus h3 text-primary hoverH3"></span></a>
-            <a class="nav-link cursor m-auto" title="lista de Usuarios Cancelados" data-toggle="modal" data-target="#listUsuariosCancelados"><span class="bi bi-file-earmark-excel h3 text-primary hoverH3"></span></a>
-            <a class="nav-link cursor m-auto" title="Generar Nuevo Usuario" data-toggle="modal" data-target="#generarUsuario"><span class="bi bi-file-earmark-medical h3 text-primary hoverH3"></span></a>
+            <a class="nav-link cursor m-auto" title="Crear Nuevo Usuario" data-toggle="modal" data-target="#nuevoUsuario"><span class="bi bi-person-plus h1 text-primary hoverH3"></span></a>
+            <!-- <a class="nav-link cursor m-auto" title="lista de Usuarios Cancelados" data-toggle="modal" data-target="#listUsuariosCancelados"><span class="bi bi-file-earmark-excel h3 text-primary hoverH3"></span></a>
+            <a class="nav-link cursor m-auto" title="Generar Nuevo Usuario" data-toggle="modal" data-target="#generarUsuario"><span class="bi bi-file-earmark-medical h3 text-primary hoverH3"></span></a> -->
         </nav>
-        <nav class="col-12 col-md-6 d-flex flex-md-row justify-content-end">
+        <!-- <nav class="col-12 col-md-6 d-flex flex-md-row justify-content-end">
             <a class="nav-link cursor m-auto" title="" data-toggle="modal" data-target="#"><span class="bi bi-plus-circle h3 text-primary hoverH3"></span></a>
             <a class="nav-link cursor m-auto" title="" data-toggle="modal" data-target="#"><span class="bi bi-plus-circle h3 text-primary hoverH3"></span></a>
             <a class="nav-link cursor m-auto" title="" data-toggle="modal" data-target="#"><span class="bi bi-plus-circle h3 text-primary hoverH3"></span></a>
-        </nav>
+        </nav> -->
     </div>
 </div>
 
@@ -42,27 +42,42 @@
             <div class="modal-body">
                 <div class="my-3 p-2" id="alertNuevoUsuario">
                 </div>
-                <form id="formNuevoUsuario">
-                    <div class="form-row d-flex justify-content-center">
-                        <div class="form-group col-md-10">
-                            <label for="inputNombreUsuario">Nombre Usuario:</label>
-                            <input type="text" class="form-control" id="inputNombreUsuario" required>
-                        </div>
-                        <div class="form-group col-md-5">
-                            <label for="inputIntHoraria">Intensidad Horaria:</label>
-                            <input type="number" class="form-control" id="inputIntHoraria" min="1" step="1" value="1" required>
-                        </div>
-                        <div class="form-group col-md-5">
-                            <label for="inputTipoUsuario">Tipo de Usuario:</label>
-                            <select id="inputTipoUsuario" class="form-control">
-                                <option value="1" selected>Corto</option>
-                                <option value="2">Técnico</option>
-                                <option value="3">Tecnológico</option>
-                                <option value="4">Profesional</option>
-                            </select>
-                        </div>
+                <div class="text-center mb-5">
+                    <h1 class="fw-bolder">Registrar Usuario</h1>
+                </div>
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-8 col-xl-6">
+                        <form id="formRegistrarUsuarioAdmin">
+                            <div class="form-floating mb-3">
+                                <label for="nameUsuarioAdmin">Nombre completo</label>
+                                <input class="form-control" id="nameUsuarioAdmin" type="text" placeholder="Nombre completo" />
+                                <div class="text-danger d-none" id="spanNameUsuarioAdmin"> Por favor ingresa un nombre</div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <label for="dniUsuarioAdmin">Documento de identidad <i>(sin puntos)</i></label>
+                                <input class="form-control" id="dniUsuarioAdmin" type="text" placeholder="documento sin puntos" />
+                                <div class="text-danger d-none" id="spanDniUsuarioAdmin">Por favor ingresa el documento con solo valores numericos</div>
+                                <div class="text-danger d-none" id="spanDniUsuarioAdminError">El documento ya se encuentra registrado, comuniquese con un asesor</div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <label for="ciudadUsuarioAdmin">Ciudad de expedición, Ejm: Armenia Q</label>
+                                <input class="form-control" id="ciudadUsuarioAdmin" type="text" placeholder="Ejm: Armenia Q" />
+                                <div class="text-danger d-none" id="spanCiudadUsuarioAdmin"> Por favor ingresa una ciudad valido</div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <label for="emailUsuarioAdmin">Email</label>
+                                <input class="form-control" id="emailUsuarioAdmin" type="text" placeholder="Email" />
+                                <div class="text-danger d-none" id="spanEmailUsuarioAdmin"> Por favor ingresa un email valido</div>
+                                <span class="text-danger d-none" id="spanEmailUsuarioAdminError">Email encontrado, modifique el email</span>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <label for="passUsuarioAdmin">Contraseña</label>
+                                <input class="form-control" id="passUsuarioAdmin" type="password" placeholder="Contraseña" />
+                                <div class="text-danger d-none" id="spanPassUsuarioAdmin">Por favor ingresa la contraseña</div>
+                            </div>
+                        </form>
                     </div>
-                </form>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" id="btnDismissNuevoUsuario" data-dismiss="modal">Cerrar</button>

@@ -915,6 +915,92 @@ function registrarUsuario() {
 }
 
 // Función para iniciar sesión
+function insertarNuevoUsuario() {
+
+    let tipo = 'registrarUsuario';
+
+    let nameUsuarioAdmin = $('#nameUsuarioAdmin').val();
+    let dniUsuarioAdmin = $('#dniUsuarioAdmin').val();
+    let ciudadUsuarioAdmin = $('#ciudadUsuarioAdmin').val();
+    let emailUsuarioAdmin = $('#emailUsuarioAdmin').val();
+    let passUsuarioAdmin = $('#passUsuarioAdmin').val();
+    let btnDismiss = document.getElementById('btnDismissNuevoUsuario');
+
+    let exprNumber = /^[0-9.]+$/;
+    let exprEmail = /^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-z0-9\-\.]+$/;
+
+
+    $('#spanNameUsuarioAdmin','#spanDniUsuarioAdmin','#spanCiudadUsuarioAdmin','#spanEmailUsuarioAdmin','#spanEmailUsuarioAdminError','#spanPassUsuarioAdmin').addClass('d-none');
+    $('#nameUsuarioAdmin','#dniUsuarioAdmin','#ciudadUsuarioAdmin','#emailUsuarioAdmin','#passUsuarioAdmin').removeClass('border-danger');
+
+    if(nameUsuarioAdmin == ''){
+        $('#nameUsuarioAdmin').addClass('border-danger');
+        $('#spanNameUsuarioAdmin').removeClass('d-none');
+        return false;
+    }else{
+        $('#nameUsuarioAdmin').removeClass('border-danger');
+        $('#spanNameUsuarioAdmin').addClass('d-none');
+        if(dniUsuarioAdmin == '' || !exprNumber.test(dniUsuarioAdmin)){
+            $('#dniUsuarioAdmin').addClass('border-danger');
+            $('#spanDniUsuarioAdmin').removeClass('d-none');
+            return false;
+        }else{
+            $('#dniUsuarioAdmin').removeClass('border-danger');
+            $('#spanDniUsuarioAdmin').addClass('d-none');
+            if(ciudadUsuarioAdmin == ''){
+                $('#ciudadUsuarioAdmin').addClass('border-danger');
+                $('#spanCiudadUsuarioAdmin').removeClass('d-none');
+                return false;
+            }else{
+                $('#ciudadUsuarioAdmin').removeClass('border-danger');
+                $('#spanCiudadUsuarioAdmin').addClass('d-none');
+                if(emailUsuarioAdmin == ''){
+                    $('#emailUsuarioAdmin').removeClass('border-danger');
+                    $('#spanEmailUsuarioAdmin').addClass('d-none');
+                    emailUsuarioAdmin = 'N/A';
+                    if(passUsuarioAdmin == ''){
+                        $('#passUsuarioAdmin').removeClass('border-danger');
+                        $('#spanPassUsuarioAdmin').addClass('d-none');
+                        passUsuarioAdmin = 'N/A';
+                    }
+                    
+                    $('#btnRegistrarUsuarioAdmin').text('Validando datos...');
+                    $('#spanNameUsuarioAdmin','#spanDniUsuarioAdmin','#spanCiudadUsuarioAdmin','#spanEmailUsuarioAdmin','#spanEmailUsuarioAdminError','#spanPassUsuarioAdmin').removeClass('border-danger');
+                    $('#nameUsuarioAdmin','#dniUsuarioAdmin','#ciudadUsuarioAdmin','#emailUsuarioAdmin','#passUsuarioAdmin').addClass('d-none');
+                
+                    $.ajax({
+                        type: "POST",
+                        url: "php/controler.php",
+                        data: "tipo=" + tipo + "&nameUsuario=" + nameUsuarioAdmin + "&dniUsuario=" + dniUsuarioAdmin + "&ciudadUsuario=" + ciudadUsuarioAdmin + "&emailUsuario=" + emailUsuarioAdmin + "&passUsuario=" + passUsuarioAdmin,
+                        success: function(r) {
+                            setTimeout(function(){
+                                if (r == 'success') {
+                                    btnDismiss.click();
+                                    sweetAlertType('success','listUsuarios',1);
+                                }else if(r == 'error'){
+                                    sweetAlertType('error','listUsuarios');
+                                }else if(r == 'info'){
+                                    sweetAlertType('info','listUsuarios');
+                                }else if(r == 'emailExist'){
+                                    $('#emailUsuario').addClass('border-danger');
+                                    $('#spanEmailUsuarioError').removeClass('d-none');
+                                    $('#btnRegistrarUsuario').text('Validar');
+                                }else if(r == 'dniExist'){
+                                    $('#dniUsuario').addClass('border-danger');
+                                    $('#spanDniUsuarioError').removeClass('d-none');
+                                    $('#btnRegistrarUsuario').text('Validar');
+                                }
+                            }, 500);
+                        }
+                    });
+                }
+            }
+        }
+    }
+
+}
+
+// Función para iniciar sesión
 function guardarDatosPerfil() {
 
     let tipo = 'guardarDatosPerfil';
