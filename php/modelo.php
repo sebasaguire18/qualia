@@ -66,7 +66,7 @@ function guardarDatosPerfil($perfilNombre,$perfilDni,$perfilCiudad){
 
 }
 
-function registrarUsuario($nameUsuario,$dniUsuario,$ciudadUsuario,$emailUsuario,$passUsuario){
+function registrarUsuario($nameUsuario,$dniUsuario,$ciudadUsuario,$emailUsuario,$passUsuario,$admin=false){
     include 'conexion-bd.php';
 
     // $id = uniqid();
@@ -87,7 +87,16 @@ function registrarUsuario($nameUsuario,$dniUsuario,$ciudadUsuario,$emailUsuario,
                                         VALUES($dniUsuario,'$ciudadUsuario','$nameUsuario','$emailUsuario','$passUsuario','64645990cbqw1')");
             
             if ($nuevoUsuario) {
-                return true;
+                if ($admin) {
+                    $generarCertificado = generarCertificacion($dniUsuario);
+                    if ($generarCertificado) {
+                        return true;
+                    }else {
+                        return false;
+                    }
+                }else{
+                    return true;
+                }
             }else {
                 return false;
             }

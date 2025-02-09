@@ -917,7 +917,7 @@ function registrarUsuario() {
 // Función para iniciar sesión
 function insertarNuevoUsuario() {
 
-    let tipo = 'registrarUsuario';
+    let tipo = 'registrarUsuarioAdmin';
 
     let nameUsuarioAdmin = $('#nameUsuarioAdmin').val();
     let dniUsuarioAdmin = $('#dniUsuarioAdmin').val();

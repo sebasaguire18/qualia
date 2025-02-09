@@ -20,61 +20,61 @@
                 <div class="card shadow border-0 rounded-4 mb-5">
                     <div class="card-body p-5">
                         <div class="row align-items-center gx-5">
-                            <div class="col-6 my-4 text-center text-lg-start mb-4 mb-lg-0">
+                            <div class="col-12 col-lg-6 col-md-6 col-xl-6 my-4 text-center text-lg-start mb-4 mb-lg-0">
                                 <div class="bg-light p-4 rounded-4">
                                     <div class="text-primary fw-bolder mb-2">Tema 1</div>
                                     <div class="small fw-bolder">Marco legal </div>
                                 </div>
                             </div>
-                            <div class="col-6 my-4 text-center text-lg-start mb-4 mb-lg-0">
+                            <div class="col-12 col-lg-6 col-md-6 col-xl-6 my-4 text-center text-lg-start mb-4 mb-lg-0">
                                 <div class="bg-light p-4 rounded-4">
                                     <div class="text-primary fw-bolder mb-2">Tema 2</div>
                                     <div class="small fw-bolder"> Conceptos </div>
                                 </div>
                             </div>
-                            <div class="col-6 my-4 text-center text-lg-start mb-4 mb-lg-0">
+                            <div class="col-12 col-lg-6 col-md-6 col-xl-6 my-4 text-center text-lg-start mb-4 mb-lg-0">
                                 <div class="bg-light p-4 rounded-4">
                                     <div class="text-primary fw-bolder mb-2">Tema 3</div>
                                     <div class="small fw-bolder"> ETAs, contaminación y peligros </div>
                                 </div>
                             </div>
-                            <div class="col-6 my-4 text-center text-lg-start mb-4 mb-lg-0">
+                            <div class="col-12 col-lg-6 col-md-6 col-xl-6 my-4 text-center text-lg-start mb-4 mb-lg-0">
                                 <div class="bg-light p-4 rounded-4">
                                     <div class="text-primary fw-bolder mb-2">Tema 4</div>
                                     <div class="small fw-bolder"> Personal manipulador de alimentos </div>
                                 </div>
                             </div>
-                            <div class="col-6 my-4 text-center text-lg-start mb-4 mb-lg-0">
+                            <div class="col-12 col-lg-6 col-md-6 col-xl-6 my-4 text-center text-lg-start mb-4 mb-lg-0">
                                 <div class="bg-light p-4 rounded-4">
                                     <div class="text-primary fw-bolder mb-2">Tema 5</div>
                                     <div class="small fw-bolder"> Requisitos higiénicos de fabricación </div>
                                 </div>
                             </div>
-                            <div class="col-6 my-4 text-center text-lg-start mb-4 mb-lg-0">
+                            <div class="col-12 col-lg-6 col-md-6 col-xl-6 my-4 text-center text-lg-start mb-4 mb-lg-0">
                                 <div class="bg-light p-4 rounded-4">
                                     <div class="text-primary fw-bolder mb-2">Tema 6</div>
                                     <div class="small fw-bolder"> Locativos </div>
                                 </div>
                             </div>
-                            <div class="col-6 my-4 text-center text-lg-start mb-4 mb-lg-0">
+                            <div class="col-12 col-lg-6 col-md-6 col-xl-6 my-4 text-center text-lg-start mb-4 mb-lg-0">
                                 <div class="bg-light p-4 rounded-4">
                                     <div class="text-primary fw-bolder mb-2">Tema 7</div>
                                     <div class="small fw-bolder"> Equipos y utensilios </div>
                                 </div>
                             </div>
-                            <div class="col-6 my-4 text-center text-lg-start mb-4 mb-lg-0">
+                            <div class="col-12 col-lg-6 col-md-6 col-xl-6 my-4 text-center text-lg-start mb-4 mb-lg-0">
                                 <div class="bg-light p-4 rounded-4">
                                     <div class="text-primary fw-bolder mb-2">Tema 8</div>
                                     <div class="small fw-bolder"> Programa de limpieza y desinfección </div>
                                 </div>
                             </div>
-                            <div class="col-6 my-4 text-center text-lg-start mb-4 mb-lg-0">
+                            <div class="col-12 col-lg-6 col-md-6 col-xl-6 my-4 text-center text-lg-start mb-4 mb-lg-0">
                                 <div class="bg-light p-4 rounded-4">
                                     <div class="text-primary fw-bolder mb-2">Tema 9</div>
                                     <div class="small fw-bolder"> Manejo de residuos sólidos y plagas </div>
                                 </div>
                             </div>
-                            <div class="col-6 my-4 text-center text-lg-start mb-4 mb-lg-0">
+                            <div class="col-12 col-lg-6 col-md-6 col-xl-6 my-4 text-center text-lg-start mb-4 mb-lg-0">
                                 <div class="bg-light p-4 rounded-4">
                                     <div class="text-primary fw-bolder mb-2">Tema 10</div>
                                     <div class="small fw-bolder"> Agua potable </div>
